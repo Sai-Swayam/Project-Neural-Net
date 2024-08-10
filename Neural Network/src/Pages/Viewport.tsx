@@ -1,4 +1,12 @@
 import React, { useCallback } from "react";
+import InputNode from "../NodeTypes/InputNode";
+import layers from "../assets/layers.json";
+
+interface Layer {
+  
+}
+let layers_var = JSON.parse(layers);
+
 import {
   ReactFlow,
   MiniMap,
@@ -11,13 +19,27 @@ import {
   type OnConnect,
   BackgroundVariant,
 } from "@xyflow/react";
-import "@xyflow/react/dist/style.css";
+import "@xyflow/react/dist/base.css";
 
+//rename these back to initialNodes
 const Nodes = [
-  { id: "1", position: { x: 0, y: 0 }, data: { label: "1" } },
-  { id: "2", position: { x: 0, y: 100 }, data: { label: "2" } },
+  {
+    id: "1",
+    type: "inputNode",
+    position: { x: 0, y: 0 },
+    //This data will be passed according to the type of data recieved from the json
+    data: { label: layers[0].Type, number: 5, layers: layers },
+  },
+  { id: "2", position: { x: 0, y: 200 }, data: { label: "Hidden Node" } },
+  { id: "3", position: { x: 0, y: 300 }, data: { label: "Output Node" } },
 ];
-const Edges = [{ id: "e1-2", source: "1", target: "2" }];
+//rename these back to initialEdges
+const Edges = [
+  { id: "e1-2", source: "1", target: "2" },
+  { id: "e2-3", source: "2", target: "3" },
+];
+
+const nodeTypes = { inputNode: InputNode };
 
 const panOnDrag = [1, 2];
 
@@ -34,7 +56,7 @@ export const Viewport: React.FC = () => {
     <div>
       <div
         style={{ width: "100vw", height: "100vh" }}
-        className="bg-neutral-900"
+        className="bg-white font-mono"
       >
         <ReactFlow
           nodes={nodes}
@@ -47,6 +69,7 @@ export const Viewport: React.FC = () => {
           selectionOnDrag
           panOnDrag={panOnDrag}
           selectionMode={SelectionMode.Partial}
+          nodeTypes={nodeTypes}
         >
           <Controls />
           <MiniMap />
