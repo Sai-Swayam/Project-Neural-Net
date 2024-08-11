@@ -43,8 +43,7 @@
   {
     "Type": "ActivityRegularization",
     "params": {
-      "args": {
-      },
+      "args": {},
       "kwargs": {
         "l1": 0.0,
         "l2": 0.0,
@@ -71,14 +70,12 @@
   {
     "Type": "Add",
     "params": {
-      "args": {
-      },
+      "args": {},
       "kwargs": {
         "Name": "Add"
       }
     },
-    "param_desc": {
-    },
+    "param_desc": {},
     "description": "Performs element-wise addition operation.",
     "href": "https://www.tensorflow.org/api_docs/python/tf/keras/layers/Add"
   },
@@ -123,30 +120,27 @@
       }
     },
     "param_desc": {
-        "use_scale": {
-            "type": "bool",
-            "description": "If True, will create a scalar variable to scale the attention scores."
-        },
-        "score_mode": {
-            "type": "dropdown",
-            "options": [
-            "dot",
-            "concat"
-            ],
-            "description": "Function to use to compute attention scores, one of {\"dot\", \"concat\"}. \"dot\" refers to the dot product between the query and key vectors. \"concat\" refers to the hyperbolic tangent of the concatenation of the query and key vectors."
-        },
-        "dropout": {
-            "type": "float",
-            "min": 0.0,
-            "max": 1.0,
-            "description": "Float between 0 and 1. Fraction of the units to drop for the attention scores."
-        },
-        "seed": {
-            "type": ["int", "null"],
-            "min": null,
-            "max": null,
-            "description": "A Python integer to use as random seed incase of dropout."
-        }
+      "use_scale": {
+        "type": "bool",
+        "description": "If True, will create a scalar variable to scale the attention scores."
+      },
+      "score_mode": {
+        "type": "dropdown",
+        "options": ["dot", "concat"],
+        "description": "Function to use to compute attention scores, one of {\"dot\", \"concat\"}. \"dot\" refers to the dot product between the query and key vectors. \"concat\" refers to the hyperbolic tangent of the concatenation of the query and key vectors."
+      },
+      "dropout": {
+        "type": "float",
+        "min": 0.0,
+        "max": 1.0,
+        "description": "Float between 0 and 1. Fraction of the units to drop for the attention scores."
+      },
+      "seed": {
+        "type": ["int", "null"],
+        "min": null,
+        "max": null,
+        "description": "A Python integer to use as random seed incase of dropout."
+      }
     },
     "description": "Dot-product attention layer, a.k.a. Luong-style attention.",
     "href": "https://www.tensorflow.org/api_docs/python/tf/keras/layers/Attention"
@@ -161,8 +155,7 @@
         "Name": "Average"
       }
     },
-    "param_desc": {
-    },
+    "param_desc": {},
     "description": "Average the inputs element-wise.",
     "href": "https://www.tensorflow.org/api_docs/python/tf/keras/layers/Average"
   },
@@ -195,18 +188,12 @@
       },
       "padding": {
         "type": "dropdown",
-        "options": [
-          "valid",
-          "same"
-        ],
+        "options": ["valid", "same"],
         "description": "One of \"valid\" or \"same\"."
       },
       "data_format": {
         "type": "dropdown",
-        "options": [
-          "channels_last",
-          "channels_first"
-        ],
+        "options": ["channels_last", "channels_first"],
         "description": "The ordering of the dimensions in the inputs. channels_last corresponds to inputs with shape (batch, steps, features) while channels_first corresponds to inputs with shape (batch, features, steps)."
       }
     },
@@ -242,18 +229,12 @@
       },
       "padding": {
         "type": "dropdown",
-        "options": [
-          "valid",
-          "same"
-        ],
+        "options": ["valid", "same"],
         "description": "One of \"valid\" or \"same\"."
       },
       "data_format": {
         "type": "dropdown",
-        "options": [
-          "channels_last",
-          "channels_first"
-        ],
+        "options": ["channels_last", "channels_first"],
         "description": "A string, one of channels_last (default) or channels_first. The ordering of the dimensions in the inputs. channels_last corresponds to inputs with shape (batch, steps, features) while channels_first corresponds to inputs with shape (batch, features, steps)."
       }
     },
@@ -286,23 +267,17 @@
         "min": 1,
         "max": null,
         "description": "Specifies how much the pooling window moves for each pooling step. If null, it will default to pool_size."
-        },
-        "padding": {
-            "type": "dropdown",
-            "options": [
-            "valid",
-            "same"
-            ],
-            "description": "One of \"valid\" or \"same\"."
-        },
-        "data_format": {
-            "type": "dropdown",
-            "options": [
-            "channels_last",
-            "channels_first"
-            ],
-            "description": "The ordering of the dimensions in the inputs. channels_last corresponds to inputs with shape (batch, steps, features) while channels_first corresponds to inputs with shape (batch, features, steps)."
-        }
+      },
+      "padding": {
+        "type": "dropdown",
+        "options": ["valid", "same"],
+        "description": "One of \"valid\" or \"same\"."
+      },
+      "data_format": {
+        "type": "dropdown",
+        "options": ["channels_last", "channels_first"],
+        "description": "The ordering of the dimensions in the inputs. channels_last corresponds to inputs with shape (batch, steps, features) while channels_first corresponds to inputs with shape (batch, features, steps)."
+      }
     },
     "description": "Average pooling operation for 3D data (spatial or spatio-temporal).",
     "href": "https://www.tensorflow.org/api_docs/python/tf/keras/layers/AveragePooling3D"
@@ -354,7 +329,7 @@
         "description": "Only applicable with the TensorFlow backend. If True, synchronizes the global batch statistics (mean and variance) for the layer across all devices at each training step in a distributed training strategy. If False, each replica uses its own local batch statistics."
       }
     },
-    "description":"Layer that normalizes its inputs.",
+    "description": "Layer that normalizes its inputs.",
     "href": "https://www.tensorflow.org/api_docs/python/tf/keras/layers/BatchNormalization"
   },
   {
@@ -363,28 +338,24 @@
       "args": {
         "**kwargs": ""
       },
-        "kwargs": {
-            "num_tokens": null,
-            "output_mode": "multi_hot",
-            "Name": "CategoryEncoding"
-        }
+      "kwargs": {
+        "num_tokens": null,
+        "output_mode": "multi_hot",
+        "Name": "CategoryEncoding"
+      }
     },
     "param_desc": {
-        "num_tokens": {
-            "type": "int",
-            "min": 0,
-            "max": null,
-            "description": "The total number of tokens the layer should support. All inputs to the layer must integers in the range 0 <= value < num_tokens, or an error will be thrown."
-        },
-        "output_mode": {
-            "type": "dropdown",
-            "options": [
-              "multi_hot",
-              "binary",
-              "count"
-            ],
-            "description": "- `\"one_hot\"`: Encodes each individual element in the input\n    into an array of `num_tokens` size, containing a 1 at the\n    element index. If the last dimension is size 1, will encode\n    on that dimension. If the last dimension is not size 1,\n    will append a new dimension for the encoded output.\n- `\"multi_hot\"`: Encodes each sample in the input into a single\n    array of `num_tokens` size, containing a 1 for each\n    vocabulary term present in the sample. Treats the last\n    dimension as the sample dimension, if input shape is\n    `(..., sample_length)`, output shape will be\n    `(..., num_tokens)`.\n- `\"count\"`: Like `\"multi_hot\"`, but the int array contains a\n    count of the number of times the token at that index\n    appeared in the sample. For all output modes, currently only output up to rank 2 is supported. "
-        }
+      "num_tokens": {
+        "type": "int",
+        "min": 0,
+        "max": null,
+        "description": "The total number of tokens the layer should support. All inputs to the layer must integers in the range 0 <= value < num_tokens, or an error will be thrown."
+      },
+      "output_mode": {
+        "type": "dropdown",
+        "options": ["multi_hot", "binary", "count"],
+        "description": "- `\"one_hot\"`: Encodes each individual element in the input\n    into an array of `num_tokens` size, containing a 1 at the\n    element index. If the last dimension is size 1, will encode\n    on that dimension. If the last dimension is not size 1,\n    will append a new dimension for the encoded output.\n- `\"multi_hot\"`: Encodes each sample in the input into a single\n    array of `num_tokens` size, containing a 1 for each\n    vocabulary term present in the sample. Treats the last\n    dimension as the sample dimension, if input shape is\n    `(..., sample_length)`, output shape will be\n    `(..., num_tokens)`.\n- `\"count\"`: Like `\"multi_hot\"`, but the int array contains a\n    count of the number of times the token at that index\n    appeared in the sample. For all output modes, currently only output up to rank 2 is supported. "
+      }
     },
     "description": "A preprocessing layer which encodes integer features.",
     "href": "https://www.tensorflow.org/api_docs/python/tf/keras/layers/CategoryEncoding"
@@ -417,10 +388,7 @@
       },
       "data_format": {
         "type": "dropdown",
-        "options": [
-          "channels_last",
-          "channels_first"
-        ],
+        "options": ["channels_last", "channels_first"],
         "description": "The ordering of the dimensions in the inputs. \"channels_last\" corresponds to inputs with shape (batch, height, width, channels) while \"channels_first\" corresponds to inputs with shape (batch, channels, height, width)."
       }
     },
@@ -437,7 +405,6 @@
         "axis": -1,
         "Name": "Concatenate"
       }
-
     },
     "param_desc": {
       "axis": {
@@ -486,19 +453,12 @@
       },
       "padding": {
         "type": "dropdown",
-        "options": [
-          "valid",
-          "same",
-          "causal"
-        ],
+        "options": ["valid", "same", "causal"],
         "description": "\"valid\" means no padding. \"same\" results in padding evenly to the left/right or up/down of the input. When padding=\"same\" and strides=1, the output has the same size as the input. \"causal\" results in causal(dilated) convolutions, e.g. output[t] does not depend oninput[t+1:]. Useful when modeling temporal data where the model should not violate the temporal order."
       },
       "data_format": {
         "type": "dropdown",
-        "options": [
-          "channels_last",
-          "channels_first"
-        ],
+        "options": ["channels_last", "channels_first"],
         "description": "The ordering of the dimensions in the inputs. \"channels_last\" corresponds to inputs with shape (batch, steps, features) while \"channels_first\" corresponds to inputs with shape (batch, features, steps)."
       },
       "dilation_rate": {
@@ -582,19 +542,12 @@
       },
       "padding": {
         "type": "dropdown",
-        "options": [
-          "valid",
-          "same",
-          "causal"
-        ],
+        "options": ["valid", "same", "causal"],
         "description": "\"valid\" means no padding. \"same\" results in padding evenly to the left/right or up/down of the input. When padding=\"same\" and strides=1, the output has the same size as the input. \"causal\" results in causal(dilated) convolutions, e.g. output[t] does not depend oninput[t+1:]. Useful when modeling temporal data where the model should not violate the temporal order."
       },
       "data_format": {
         "type": "dropdown",
-        "options": [
-          "channels_last",
-          "channels_first"
-        ],
+        "options": ["channels_last", "channels_first"],
         "description": "The ordering of the dimensions in the inputs. \"channels_last\" corresponds to inputs with shape (batch, steps, features) while \"channels_first\" corresponds to inputs with shape (batch, features, steps)."
       },
       "dilation_rate": {
@@ -680,19 +633,12 @@
       },
       "padding": {
         "type": "dropdown",
-        "options": [
-          "valid",
-          "same",
-          "causal"
-        ],
+        "options": ["valid", "same", "causal"],
         "description": "\"valid\" means no padding. \"same\" results in padding evenly to the left/right or up/down of the input. When padding=\"same\" and strides=1, the output has the same size as the input. \"causal\" results in causal(dilated) convolutions, e.g. output[t] does not depend oninput[t+1:]. Useful when modeling temporal data where the model should not violate the temporal order."
       },
       "data_format": {
         "type": "dropdown",
-        "options": [
-          "channels_last",
-          "channels_first"
-        ],
+        "options": ["channels_last", "channels_first"],
         "description": "The ordering of the dimensions in the inputs. \"channels_last\" corresponds to inputs with shape (batch, steps, features) while \"channels_first\" corresponds to inputs with shape (batch, features, steps)."
       },
       "dilation_rate": {
@@ -707,35 +653,35 @@
         "max": null,
         "description": "the number of groups in which the input is split along the channel axis. Each group is convolved separately with filters // groups filters. The output is the concatenation of all the groups results along the channel axis. Input channels and filters must both be divisible by groups."
       },
-        "activation": {
-            "type": "dropdown",
-            "options": [
-            "linear",
-            "deserialize",
-            "elu",
-            "exponential",
-            "gelu",
-            "hard_sigmoid",
-            "hard_silu",
-            "leaky_relu",
-            "log_softmax",
-            "mish",
-            "relu",
-            "relu6",
-            "selu",
-            "serialize",
-            "softmax",
-            "softplus",
-            "softsign",
-            "swish",
-            "tanh"
-            ],
-            "description": "Activation function to use."
-        },
-        "use_bias": {
-            "type": "bool",
-            "description": "Whether the layer uses a bias vector."
-        }
+      "activation": {
+        "type": "dropdown",
+        "options": [
+          "linear",
+          "deserialize",
+          "elu",
+          "exponential",
+          "gelu",
+          "hard_sigmoid",
+          "hard_silu",
+          "leaky_relu",
+          "log_softmax",
+          "mish",
+          "relu",
+          "relu6",
+          "selu",
+          "serialize",
+          "softmax",
+          "softplus",
+          "softsign",
+          "swish",
+          "tanh"
+        ],
+        "description": "Activation function to use."
+      },
+      "use_bias": {
+        "type": "bool",
+        "description": "Whether the layer uses a bias vector."
+      }
     },
     "description": "2D convolution layer",
     "href": "https://www.tensorflow.org/api_docs/python/tf/keras/layers/Conv2D"
@@ -780,19 +726,12 @@
       },
       "padding": {
         "type": "dropdown",
-        "options": [
-        "valid",
-        "same",
-        "causal"
-        ],
+        "options": ["valid", "same", "causal"],
         "description": "\"valid\" means no padding. \"same\" results in padding evenly to the left/right or up/down of the input. When padding=\"same\" and strides=1, the output has the same size as the input. \"causal\" results in causal(dilated) convolutions, e.g. output[t] does not depend oninput[t+1:]. Useful when modeling temporal data where the model should not violate the temporal order."
       },
       "data_format": {
         "type": "dropdown",
-        "options": [
-        "channels_last",
-        "channels_first"
-        ],
+        "options": ["channels_last", "channels_first"],
         "description": "The ordering of the dimensions in the inputs. \"channels_last\" corresponds to inputs with shape (batch, steps, features) while \"channels_first\" corresponds to inputs with shape (batch, features, steps)."
       },
       "dilation_rate": {
@@ -810,25 +749,25 @@
       "activation": {
         "type": "dropdown",
         "options": [
-        "linear",
-        "deserialize",
-        "elu",
-        "exponential",
-        "gelu",
-        "hard_sigmoid",
-        "hard_silu",
-        "leaky_relu",
-        "log_softmax",
-        "mish",
-        "relu",
-        "relu6",
-        "selu",
-        "serialize",
-        "softmax",
-        "softplus",
-        "softsign",
-        "swish",
-        "tanh"
+          "linear",
+          "deserialize",
+          "elu",
+          "exponential",
+          "gelu",
+          "hard_sigmoid",
+          "hard_silu",
+          "leaky_relu",
+          "log_softmax",
+          "mish",
+          "relu",
+          "relu6",
+          "selu",
+          "serialize",
+          "softmax",
+          "softplus",
+          "softsign",
+          "swish",
+          "tanh"
         ],
         "description": "Activation function to use."
       },
@@ -880,19 +819,12 @@
       },
       "padding": {
         "type": "dropdown",
-        "options": [
-        "valid",
-        "same",
-        "causal"
-        ],
+        "options": ["valid", "same", "causal"],
         "description": "\"valid\" means no padding. \"same\" results in padding evenly to the left/right or up/down of the input. When padding=\"same\" and strides=1, the output has the same size as the input. \"causal\" results in causal(dilated) convolutions, e.g. output[t] does not depend oninput[t+1:]. Useful when modeling temporal data where the model should not violate the temporal order."
       },
       "data_format": {
         "type": "dropdown",
-        "options": [
-        "channels_last",
-        "channels_first"
-        ],
+        "options": ["channels_last", "channels_first"],
         "description": "The ordering of the dimensions in the inputs. \"channels_last\" corresponds to inputs with shape (batch, steps, features) while \"channels_first\" corresponds to inputs with shape (batch, features, steps)."
       },
       "dilation_rate": {
@@ -910,25 +842,25 @@
       "activation": {
         "type": "dropdown",
         "options": [
-        "linear",
-        "deserialize",
-        "elu",
-        "exponential",
-        "gelu",
-        "hard_sigmoid",
-        "hard_silu",
-        "leaky_relu",
-        "log_softmax",
-        "mish",
-        "relu",
-        "relu6",
-        "selu",
-        "serialize",
-        "softmax",
-        "softplus",
-        "softsign",
-        "swish",
-        "tanh"
+          "linear",
+          "deserialize",
+          "elu",
+          "exponential",
+          "gelu",
+          "hard_sigmoid",
+          "hard_silu",
+          "leaky_relu",
+          "log_softmax",
+          "mish",
+          "relu",
+          "relu6",
+          "selu",
+          "serialize",
+          "softmax",
+          "softplus",
+          "softsign",
+          "swish",
+          "tanh"
         ],
         "description": "Activation function to use."
       },
@@ -980,19 +912,12 @@
       },
       "padding": {
         "type": "dropdown",
-        "options": [
-        "valid",
-        "same",
-        "causal"
-        ],
+        "options": ["valid", "same", "causal"],
         "description": "\"valid\" means no padding. \"same\" results in padding evenly to the left/right or up/down of the input. When padding=\"same\" and strides=1, the output has the same size as the input. \"causal\" results in causal(dilated) convolutions, e.g. output[t] does not depend oninput[t+1:]. Useful when modeling temporal data where the model should not violate the temporal order."
       },
       "data_format": {
         "type": "dropdown",
-        "options": [
-        "channels_last",
-        "channels_first"
-        ],
+        "options": ["channels_last", "channels_first"],
         "description": "The ordering of the dimensions in the inputs. \"channels_last\" corresponds to inputs with shape (batch, steps, features) while \"channels_first\" corresponds to inputs with shape (batch, features, steps)."
       },
       "dilation_rate": {
@@ -1010,25 +935,25 @@
       "activation": {
         "type": "dropdown",
         "options": [
-        "linear",
-        "deserialize",
-        "elu",
-        "exponential",
-        "gelu",
-        "hard_sigmoid",
-        "hard_silu",
-        "leaky_relu",
-        "log_softmax",
-        "mish",
-        "relu",
-        "relu6",
-        "selu",
-        "serialize",
-        "softmax",
-        "softplus",
-        "softsign",
-        "swish",
-        "tanh"
+          "linear",
+          "deserialize",
+          "elu",
+          "exponential",
+          "gelu",
+          "hard_sigmoid",
+          "hard_silu",
+          "leaky_relu",
+          "log_softmax",
+          "mish",
+          "relu",
+          "relu6",
+          "selu",
+          "serialize",
+          "softmax",
+          "softplus",
+          "softsign",
+          "swish",
+          "tanh"
         ],
         "description": "Activation function to use."
       },
@@ -1084,18 +1009,12 @@
       },
       "padding": {
         "type": "dropdown",
-        "options": [
-          "valid",
-          "same"
-        ],
+        "options": ["valid", "same"],
         "description": "\"valid\" means no padding. \"same\" results in padding evenly to the left/right or up/down of the input. When padding=\"same\" and strides=1, the output has the same size as the input. \"causal\" results in causal(dilated) convolutions, e.g. output[t] does not depend oninput[t+1:]. Useful when modeling temporal data where the model should not violate the temporal order."
       },
       "data_format": {
         "type": "dropdown",
-        "options": [
-          "channels_last",
-          "channels_first"
-        ],
+        "options": ["channels_last", "channels_first"],
         "description": "The ordering of the dimensions in the inputs. \"channels_last\" corresponds to inputs with shape (batch, steps, features) while \"channels_first\" corresponds to inputs with shape (batch, features, steps)."
       },
       "dilation_rate": {
@@ -1130,25 +1049,25 @@
       "recurrent_activation": {
         "type": "dropdown",
         "options": [
-        "sigmoid",
-        "deserialize",
-        "elu",
-        "exponential",
-        "gelu",
-        "hard_sigmoid",
-        "hard_silu",
-        "leaky_relu",
-        "linear",
-        "log_softmax",
-        "mish",
-        "relu",
-        "relu6",
-        "selu",
-        "serialize",
-        "softmax",
-        "softplus",
-        "softsign",
-        "swish"
+          "sigmoid",
+          "deserialize",
+          "elu",
+          "exponential",
+          "gelu",
+          "hard_sigmoid",
+          "hard_silu",
+          "leaky_relu",
+          "linear",
+          "log_softmax",
+          "mish",
+          "relu",
+          "relu6",
+          "selu",
+          "serialize",
+          "softmax",
+          "softplus",
+          "softsign",
+          "swish"
         ],
         "description": "Activation function to use for the recurrent step."
       },
@@ -1251,19 +1170,12 @@
       },
       "padding": {
         "type": "dropdown",
-        "options": [
-          "valid",
-          "same",
-          "causal"
-        ],
+        "options": ["valid", "same", "causal"],
         "description": "\"valid\" means no padding. \"same\" results in padding evenly to the left/right or up/down of the input. When padding=\"same\" and strides=1, the output has the same size as the input. \"causal\" results in causal(dilated) convolutions, e.g. output[t] does not depend oninput[t+1:]. Useful when modeling temporal data where the model should not violate the temporal order."
       },
       "data_format": {
         "type": "dropdown",
-        "options": [
-          "channels_last",
-          "channels_first"
-        ],
+        "options": ["channels_last", "channels_first"],
         "description": "The ordering of the dimensions in the inputs. \"channels_last\" corresponds to inputs with shape (batch, steps, features) while \"channels_first\" corresponds to inputs with shape (batch, features, steps)."
       },
       "dilation_rate": {
@@ -1300,25 +1212,25 @@
       "recurrent_activation": {
         "type": "dropdown",
         "options": [
-        "sigmoid",
-        "deserialize",
-        "elu",
-        "exponential",
-        "gelu",
-        "hard_sigmoid",
-        "hard_silu",
-        "leaky_relu",
-        "linear",
-        "log_softmax",
-        "mish",
-        "relu",
-        "relu6",
-        "selu",
-        "serialize",
-        "softmax",
-        "softplus",
-        "softsign",
-        "swish"
+          "sigmoid",
+          "deserialize",
+          "elu",
+          "exponential",
+          "gelu",
+          "hard_sigmoid",
+          "hard_silu",
+          "leaky_relu",
+          "linear",
+          "log_softmax",
+          "mish",
+          "relu",
+          "relu6",
+          "selu",
+          "serialize",
+          "softmax",
+          "softplus",
+          "softsign",
+          "swish"
         ],
         "description": "Activation function to use for the recurrent step."
       },
@@ -1327,14 +1239,14 @@
         "description": "Whether the layer uses a bias vector."
       },
       "unit_forget_bias": {
-          "type": "bool",
-          "description": "If True, add 1 to the bias of the forget gate at initialization. Setting it to true will also force bias_initializer=\"zeros\". This is recommended in Jozefowicz et al. 2015"
+        "type": "bool",
+        "description": "If True, add 1 to the bias of the forget gate at initialization. Setting it to true will also force bias_initializer=\"zeros\". This is recommended in Jozefowicz et al. 2015"
       },
       "dropout": {
-          "type": "float",
-          "min": 0.0,
-          "max": 1.0,
-          "description": "Float between 0 and 1. Fraction of the units to drop for the linear transformation of the inputs."
+        "type": "float",
+        "min": 0.0,
+        "max": 1.0,
+        "description": "Float between 0 and 1. Fraction of the units to drop for the linear transformation of the inputs."
       },
       "recurrent_dropout": {
         "type": "float",
@@ -1421,19 +1333,12 @@
       },
       "padding": {
         "type": "dropdown",
-        "options": [
-          "valid",
-          "same",
-          "causal"
-        ],
+        "options": ["valid", "same", "causal"],
         "description": "\"valid\" means no padding. \"same\" results in padding evenly to the left/right or up/down of the input. When padding=\"same\" and strides=1, the output has the same size as the input. \"causal\" results in causal(dilated) convolutions, e.g. output[t] does not depend oninput[t+1:]. Useful when modeling temporal data where the model should not violate the temporal order."
       },
       "data_format": {
         "type": "dropdown",
-        "options": [
-          "channels_last",
-          "channels_first"
-        ],
+        "options": ["channels_last", "channels_first"],
         "description": "The ordering of the dimensions in the inputs. \"channels_last\" corresponds to inputs with shape (batch, steps, features) while \"channels_first\" corresponds to inputs with shape (batch, features, steps)."
       },
       "dilation_rate": {
@@ -1493,8 +1398,8 @@
         "description": "Activation function to use for the recurrent step."
       },
       "use_bias": {
-          "type": "bool",
-          "description": "Whether the layer uses a bias vector."
+        "type": "bool",
+        "description": "Whether the layer uses a bias vector."
       },
       "unit_forget_bias": {
         "type": "bool",
@@ -1753,7 +1658,7 @@
     "description": "Turns positive integers (indexes) into dense vectors of fixed size.",
     "href": "https://www.tensorflow.org/api_docs/python/tf/keras/layers/Embedding"
   },
-{
+  {
     "Type": "Flatten",
     "params": {
       "args": {
@@ -1767,10 +1672,7 @@
     "param_desc": {
       "data_format": {
         "type": "dropdown",
-        "options": [
-          "channels_last",
-          "channels_first"
-        ],
+        "options": ["channels_last", "channels_first"],
         "description": "The ordering of the dimensions in the inputs. channels_last corresponds to inputs with shape (batch, ..., channels) while channels_first corresponds to inputs with shape (batch, channels, ...)."
       }
     },
@@ -1978,10 +1880,7 @@
     "param_desc": {
       "data_format": {
         "type": "dropdown",
-        "options": [
-          "channels_last",
-          "channels_first"
-        ],
+        "options": ["channels_last", "channels_first"],
         "description": "The ordering of the dimensions in the inputs. channels_last corresponds to inputs with shape (batch, steps, features) while channels_first corresponds to inputs with shape (batch, features, steps)."
       },
       "keepdims": {
@@ -2007,10 +1906,7 @@
     "param_desc": {
       "data_format": {
         "type": "dropdown",
-        "options": [
-          "channels_last",
-          "channels_first"
-        ],
+        "options": ["channels_last", "channels_first"],
         "description": "The ordering of the dimensions in the inputs. channels_last corresponds to inputs with shape (batch, height, width, channels) while channels_first corresponds to inputs with shape (batch, channels, height, width)."
       },
       "keepdims": {
@@ -2036,10 +1932,7 @@
     "param_desc": {
       "data_format": {
         "type": "dropdown",
-        "options": [
-          "channels_last",
-          "channels_first"
-        ],
+        "options": ["channels_last", "channels_first"],
         "description": "The ordering of the dimensions in the inputs. channels_last corresponds to inputs with shape (batch, spatial_dim1, spatial_dim2, spatial_dim3, channels) while channels_first corresponds to inputs with shape (batch, channels, spatial_dim1, spatial_dim2, spatial_dim3)."
       },
       "keepdims": {
@@ -2065,10 +1958,7 @@
     "param_desc": {
       "data_format": {
         "type": "dropdown",
-        "options": [
-          "channels_last",
-          "channels_first"
-        ],
+        "options": ["channels_last", "channels_first"],
         "description": "The ordering of the dimensions in the inputs. channels_last corresponds to inputs with shape (batch, steps, features) while channels_first corresponds to inputs with shape (batch, features, steps)."
       },
       "keepdims": {
@@ -2094,10 +1984,7 @@
     "param_desc": {
       "data_format": {
         "type": "dropdown",
-        "options": [
-          "channels_last",
-          "channels_first"
-        ],
+        "options": ["channels_last", "channels_first"],
         "description": "The ordering of the dimensions in the inputs. channels_last corresponds to inputs with shape (batch, height, width, channels) while channels_first corresponds to inputs with shape (batch, channels, height, width)."
       },
       "keepdims": {
@@ -2123,10 +2010,7 @@
     "param_desc": {
       "data_format": {
         "type": "dropdown",
-        "options": [
-          "channels_last",
-          "channels_first"
-        ],
+        "options": ["channels_last", "channels_first"],
         "description": "The ordering of the dimensions in the inputs. channels_last corresponds to inputs with shape (batch, spatial_dim1, spatial_dim2, spatial_dim3, channels) while channels_first corresponds to inputs with shape (batch, channels, spatial_dim1, spatial_dim2, spatial_dim3)."
       },
       "keepdims": {
@@ -2385,7 +2269,7 @@
         "min": 0.0,
         "max": 1.0,
         "description": "Float between 0 and 1"
-        },
+      },
       "return_sequences": {
         "type": "bool",
         "description": "Whether to return the last output in the output sequence, or the full sequence."
@@ -2475,28 +2359,26 @@
     "href": "https://www.tensorflow.org/api_docs/python/tf/keras/layers/LeakyReLU"
   },
   {
-    "Masking": {
-      "Type": "Masking",
-      "params": {
-        "args": {
-          "**kwargs": ""
-        },
-        "kwargs": {
-          "mask_value": 0.0,
-          "Name": "Masking"
-        }
+    "Type": "Masking",
+    "params": {
+      "args": {
+        "**kwargs": ""
       },
-      "param_desc": {
-        "mask_value": {
-          "type": "float",
-            "min": null,
-            "max": null,
-          "description": "The value that needs to be masked in the input."
-        }
-      },
-      "description": "Masks a sequence by using a mask value to skip timesteps.",
-      "href": "https://www.tensorflow.org/api_docs/python/tf/keras/layers/Masking"
-    }
+      "kwargs": {
+        "mask_value": 0.0,
+        "Name": "Masking"
+      }
+    },
+    "param_desc": {
+      "mask_value": {
+        "type": "float",
+        "min": null,
+        "max": null,
+        "description": "The value that needs to be masked in the input."
+      }
+    },
+    "description": "Masks a sequence by using a mask value to skip timesteps.",
+    "href": "https://www.tensorflow.org/api_docs/python/tf/keras/layers/Masking"
   },
   {
     "Type": "MaxPooling1D",
@@ -2527,18 +2409,12 @@
       },
       "padding": {
         "type": "dropdown",
-        "options": [
-          "valid",
-          "same"
-        ],
+        "options": ["valid", "same"],
         "description": "One of \"valid\" or \"same\" (case-insensitive). \"valid\" means no padding. \"same\" results in padding evenly to the left/right or up/down of the input such that output has the same height/width dimension as the input."
       },
       "data_format": {
         "type": "dropdown",
-        "options": [
-          "channels_last",
-          "channels_first"
-        ],
+        "options": ["channels_last", "channels_first"],
         "description": "The ordering of the dimensions in the inputs. channels_last corresponds to inputs with shape (batch, steps, features) while channels_first corresponds to inputs with shape (batch, features, steps)."
       }
     },
@@ -2567,28 +2443,19 @@
         "description": "Size of the max pooling"
       },
       "strides": {
-        "type": [
-          "int",
-          "null"
-        ],
+        "type": ["int", "null"],
         "min": null,
         "max": null,
         "description": "Specifies how much the pooling window moves for each pooling step. If null, it will default to pool_size."
       },
       "padding": {
         "type": "dropdown",
-        "options": [
-          "valid",
-          "same"
-        ],
+        "options": ["valid", "same"],
         "description": "One of \"valid\" or \"same\" (case-insensitive). \"valid\" means no padding. \"same\" results in padding evenly to the left/right or up/down of the input such that output has the same height/width dimension as the input."
       },
       "data_format": {
         "type": "dropdown",
-        "options": [
-          "channels_last",
-          "channels_first"
-        ],
+        "options": ["channels_last", "channels_first"],
         "description": "The ordering of the dimensions in the inputs. channels_last corresponds to inputs with shape (batch, height, width, channels) while channels_first corresponds to inputs with shape (batch, channels, height, width)."
       }
     },
@@ -2617,28 +2484,19 @@
         "description": "Size of the max pooling"
       },
       "strides": {
-        "type": [
-          "int",
-          "null"
-        ],
+        "type": ["int", "null"],
         "min": null,
         "max": null,
         "description": "Specifies how much the pooling window moves for each pooling step. If null, it will default to pool_size."
       },
       "padding": {
         "type": "dropdown",
-        "options": [
-          "valid",
-          "same"
-        ],
+        "options": ["valid", "same"],
         "description": "One of \"valid\" or \"same\" (case-insensitive). \"valid\" means no padding. \"same\" results in padding evenly to the left/right or up/down of the input such that output has the same height/width dimension as the input."
       },
       "data_format": {
         "type": "dropdown",
-        "options": [
-          "channels_last",
-          "channels_first"
-        ],
+        "options": ["channels_last", "channels_first"],
         "description": "The ordering of the dimensions in the inputs. channels_last corresponds to inputs with shape (batch, spatial_dim1, spatial_dim2, spatial_dim3, channels) while channels_first corresponds to inputs with shape (batch, channels, spatial_dim1, spatial_dim2, spatial_dim3)."
       }
     },
@@ -3031,10 +2889,7 @@
         "description": "If True, the network will be unrolled, else a symbolic loop will be used. Unrolling can speed-up a RNN, although it tends to be more memory-intensive. Unrolling is only suitable for short sequences."
       },
       "seed": {
-        "type": [
-          "int",
-          "null"
-        ],
+        "type": ["int", "null"],
         "min": null,
         "max": null,
         "description": "A Python integer to use as random seed."
@@ -3117,11 +2972,7 @@
       },
       "split": {
         "type": "dropdown",
-        "options": [
-          "whitespace",
-          "characters",
-          "none"
-        ],
+        "options": ["whitespace", "characters", "none"],
         "description": "Optional specification for splitting the input text. Values can be:\nNone: No splitting.\n\"whitespace\": Split on whitespace.\n\"character\": Split on each unicode character."
       },
       "ngrams": {
@@ -3132,12 +2983,7 @@
       },
       "output_mode": {
         "type": "dropdown",
-        "options": [
-          "int",
-          "multi_hot",
-          "count",
-          "tf_idf"
-        ],
+        "options": ["int", "multi_hot", "count", "tf_idf"],
         "description": "Optional specification for the output of the layer. Values can be \"int\", \"multi_hot\", \"count\" or \"tf_idf\", configuring the layer as follows:\n\"int\": Outputs integer indices, one integer index per split string token. When output_mode == \"int\", 0 is reserved for masked locations; this reduces the vocab size to max_tokens - 2 instead of max_tokens - 1.\n\"multi_hot\": Outputs a single int array per batch, of either vocab_size or max_tokens size, containing 1s in all elements where the token mapped to that index exists at least once in the batch item.\n\"count\": Like \"multi_hot\", but the int array contains a count of the number of times the token at that index appeared in the batch item.\n\"tf_idf\": Like \"multi_hot\", but the TF-IDF algorithm is applied to find the value in each token slot. For \"int\" output, any shape of input and output is supported. For all other output modes, currently only rank 1 inputs (and rank 2 outputs after splitting) are supported."
       },
       "output_sequence_length": {
@@ -3233,18 +3079,12 @@
       },
       "interpolation": {
         "type": "dropdown",
-        "options": [
-          "nearest",
-          "bilinear"
-        ],
+        "options": ["nearest", "bilinear"],
         "description": "The interpolation method."
       },
       "data_format": {
         "type": "dropdown",
-        "options": [
-          "channels_last",
-          "channels_first"
-        ],
+        "options": ["channels_last", "channels_first"],
         "description": "The ordering of the dimensions in the inputs. channels_last corresponds to inputs with shape (batch, height, width, channels) while channels_first corresponds to inputs with shape (batch, channels, height, width)."
       }
     },
@@ -3272,10 +3112,7 @@
       },
       "data_format": {
         "type": "dropdown",
-        "options": [
-          "channels_last",
-          "channels_first"
-        ],
+        "options": ["channels_last", "channels_first"],
         "description": "The ordering of the dimensions in the inputs. channels_last corresponds to inputs with shape (batch, spatial_dim1, spatial_dim2, spatial_dim3, channels) while channels_first corresponds to inputs with shape (batch, channels, spatial_dim1, spatial_dim2, spatial_dim3)."
       }
     },
@@ -3325,63 +3162,7 @@
       },
       "data_format": {
         "type": "dropdown",
-        "options": [
-          "channels_last",
-          "channels_first"
-        ],
-        "description": "The ordering of the dimensions in the inputs. channels_last corresponds to inputs with shape (batch, height, width, channels) while channels_first corresponds to inputs with shape (batch, channels, height, width)."
-      }
-    },
-    "description": "Zero-padding layer for 2D input (e.g. picture).",
-    "href": "https://www.tensorflow.org/api_docs/python/tf/keras/layers/ZeroPadding2D"
-  },
-  {
-    "Type": "ZeroPadding1D",
-    "params": {
-      "args": {
-        "**kwargs": ""
-      },
-      "kwargs": {
-        "padding": "1",
-        "Name": "ZeroPadding1D"
-      }
-    },
-    "param_desc": {
-      "padding": {
-        "type": "int",
-        "min": 1,
-        "max": null,
-        "description": "The size of the padding."
-      }
-    },
-    "description": "Zero-padding layer for 1D input (e.g. temporal sequence).",
-    "href": "https://www.tensorflow.org/api_docs/python/tf/keras/layers/ZeroPadding1D"
-  },
-  {
-    "Type": "ZeroPadding2D",
-    "params": {
-      "args": {
-        "**kwargs": ""
-      },
-      "kwargs": {
-        "padding": "1,1",
-        "data_format": "channels_last",
-        "Name": "ZeroPadding2D"
-      }
-    },
-    "param_desc": {
-      "padding": {
-        "type": "list",
-        "min_size": 1,
-        "max_size": 2,
-        "description": "The padding size."
-      },
-      "data_format": {
-        "type": "dropdown",
-        "options": [
-          "channels_last",
-          "channels_first"
-        ],
+        "options": ["channels_last", "channels_first"],
         "description": "The ordering of the dimensions in the inputs. channels_last corresponds to inputs with shape (batch, height, width, channels) while channels_first corresponds to inputs with shape (batch, channels, height, width)."
       }
     },
@@ -3409,10 +3190,7 @@
       },
       "data_format": {
         "type": "dropdown",
-        "options": [
-          "channels_last",
-          "channels_first"
-        ],
+        "options": ["channels_last", "channels_first"],
         "description": "The ordering of the dimensions in the inputs. channels_last corresponds to inputs with shape (batch, spatial_dim1, spatial_dim2, spatial_dim3, channels) while channels_first corresponds to inputs with shape (batch, channels, spatial_dim1, spatial_dim2, spatial_dim3)."
       }
     },

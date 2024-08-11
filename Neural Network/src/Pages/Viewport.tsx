@@ -1,11 +1,10 @@
-import React, { useCallback } from "react";
+import React, { useCallback, useEffect, useState } from "react";
 import InputNode from "../NodeTypes/InputNode";
 import layers from "../assets/layers.json";
 
 interface Layer {
-  
+  Type: string;
 }
-let layers_var = JSON.parse(layers);
 
 import {
   ReactFlow,
@@ -43,11 +42,32 @@ const nodeTypes = { inputNode: InputNode };
 
 const panOnDrag = [1, 2];
 
+//function starts here
 export const Viewport: React.FC = () => {
+  //states
+  // const [layers, setLayers] = useState();
+
   const [nodes, setNodes, onNodesChange] = useNodesState(Nodes);
   const [edges, setEdges, onEdgesChange] = useEdgesState(Edges);
 
-  //
+  //useEffect
+
+  // useEffect(() => {
+  //   const fetchLayers = async () => {
+  //     const res = await fetch("../assets/layers.json",{
+  //       headers : { 
+  //         'Content-Type': 'application/json',
+  //         'Accept': 'application/json'
+  //        }
+  //     });
+  //     const layers = await res.json();
+  //     setLayers(layers);
+  //     console.log(layers);
+  //   };
+
+  //   fetchLayers();
+  // }, []);
+
   const onConnect: OnConnect = useCallback(
     (params) => setEdges((eds) => addEdge(params, eds)),
     [setEdges]
