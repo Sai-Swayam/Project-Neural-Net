@@ -1,0 +1,3553 @@
+{
+    "layers": [
+        {
+            "Type": "Activation",
+            "params": [
+                "activation"
+            ],
+            "param_desc": {
+                "activation": {
+                    "type": "dropdown",
+                    "options": [
+                        "linear",
+                        "deserialize",
+                        "elu",
+                        "exponential",
+                        "gelu",
+                        "hard_sigmoid",
+                        "hard_silu",
+                        "leaky_relu",
+                        "log_softmax",
+                        "mish",
+                        "relu",
+                        "relu6",
+                        "selu",
+                        "serialize",
+                        "softmax",
+                        "softplus",
+                        "softsign",
+                        "swish",
+                        "tanh"
+                    ],
+                    "description": "Activation function to use.",
+                    "default": "linear",
+                    "required": false
+                }
+            },
+            "description": "Applies an activation function to an output.",
+            "href": "https://www.tensorflow.org/api_docs/python/tf/keras/layers/Activation"
+        },
+        {
+            "Type": "ActivityRegularization",
+            "params": [
+                "l1",
+                "l2"
+            ],
+            "param_desc": {
+                "l1": {
+                    "type": "float",
+                    "min": 0.0,
+                    "max": null,
+                    "description": "L1 regularization factor.",
+                    "default": 0.0,
+                    "required": false
+                },
+                "l2": {
+                    "type": "float",
+                    "min": 0.0,
+                    "max": null,
+                    "description": "L2 regularization factor.",
+                    "default": 0.0,
+                    "required": false
+                }
+            },
+            "description": "Layer that applies an update to the cost function based input activity.",
+            "href": "https://www.tensorflow.org/api_docs/python/tf/keras/layers/ActivityRegularization"
+        },
+        {
+            "Type": "Add",
+            "params": [],
+            "param_desc": {},
+            "description": "Performs element-wise addition operation.",
+            "href": "https://www.tensorflow.org/api_docs/python/tf/keras/layers/Add"
+        },
+        {
+            "Type": "AdditiveAttention",
+            "params": [
+                "use_scale",
+                "dropout"
+            ],
+            "param_desc": {
+                "use_scale": {
+                    "type": "bool",
+                    "description": "If True, will create a scalar variable to scale the attention scores.",
+                    "default": true,
+                    "required": false
+                },
+                "dropout": {
+                    "type": "float",
+                    "min": 0.0,
+                    "max": 1.0,
+                    "description": "Float between 0 and 1. Fraction of the units to drop for the attention scores.",
+                    "default": 0.0,
+                    "required": false
+                }
+            },
+            "description": "Additive attention layer, a.k.a. Bahdanau-style attention.",
+            "href": "https://www.tensorflow.org/api_docs/python/tf/keras/layers/AdditiveAttention"
+        },
+        {
+            "Type": "Attention",
+            "params": [
+                "use_scale",
+                "score_mode",
+                "dropout",
+                "seed"
+            ],
+            "param_desc": {
+                "use_scale": {
+                    "type": "bool",
+                    "description": "If True, will create a scalar variable to scale the attention scores.",
+                    "default": false,
+                    "required": false
+                },
+                "score_mode": {
+                    "type": "dropdown",
+                    "options": [
+                        "dot",
+                        "concat"
+                    ],
+                    "description": "Function to use to compute attention scores, one of {\"dot\", \"concat\"}. \"dot\" refers to the dot product between the query and key vectors. \"concat\" refers to the hyperbolic tangent of the concatenation of the query and key vectors.",
+                    "default": "dot",
+                    "required": false
+                },
+                "dropout": {
+                    "type": "float",
+                    "min": 0.0,
+                    "max": 1.0,
+                    "description": "Float between 0 and 1. Fraction of the units to drop for the attention scores.",
+                    "default": 0.0,
+                    "required": false
+                },
+                "seed": {
+                    "type": [
+                        "int",
+                        "null"
+                    ],
+                    "min": null,
+                    "max": null,
+                    "description": "A Python integer to use as random seed incase of dropout.",
+                    "default": "null",
+                    "required": false
+                }
+            },
+            "description": "Dot-product attention layer, a.k.a. Luong-style attention.",
+            "href": "https://www.tensorflow.org/api_docs/python/tf/keras/layers/Attention"
+        },
+        {
+            "Type": "Average",
+            "params": [],
+            "param_desc": {},
+            "description": "Average the inputs element-wise.",
+            "href": "https://www.tensorflow.org/api_docs/python/tf/keras/layers/Average"
+        },
+        {
+            "Type": "AveragePooling1D",
+            "params": [
+                "pool_size",
+                "strides",
+                "padding",
+                "data_format"
+            ],
+            "param_desc": {
+                "pool_size": {
+                    "type": "int",
+                    "min": 0,
+                    "max": null,
+                    "description": "Size of the max pooling window.",
+                    "required": true
+                },
+                "strides": {
+                    "type": [
+                        "int",
+                        null
+                    ],
+                    "min": 1,
+                    "max": null,
+                    "description": "Specifies how much the pooling window moves for each pooling step. If null, it will default to pool_size.",
+                    "default": "null",
+                    "required": false
+                },
+                "padding": {
+                    "type": "dropdown",
+                    "options": [
+                        "valid",
+                        "same"
+                    ],
+                    "description": "One of \"valid\" or \"same\".",
+                    "default": "valid",
+                    "required": false
+                },
+                "data_format": {
+                    "type": "dropdown",
+                    "options": [
+                        "channels_last",
+                        "channels_first"
+                    ],
+                    "description": "The ordering of the dimensions in the inputs. channels_last corresponds to inputs with shape (batch, steps, features) while channels_first corresponds to inputs with shape (batch, features, steps).",
+                    "default": "channels_last",
+                    "required": false
+                }
+            },
+            "description": "Average pooling for temporal data.",
+            "href": "https://www.tensorflow.org/api_docs/python/tf/keras/layers/AveragePooling1D"
+        },
+        {
+            "Type": "AveragePooling2D",
+            "params": [
+                "pool_size",
+                "strides",
+                "padding",
+                "data_format"
+            ],
+            "param_desc": {
+                "pool_size": {
+                    "type": "int",
+                    "min": 0,
+                    "max": null,
+                    "description": "Size of the max pooling window.",
+                    "required": true
+                },
+                "strides": {
+                    "type": [
+                        "int",
+                        "null"
+                    ],
+                    "min": 1,
+                    "max": null,
+                    "description": "Specifies how much the pooling window moves for each pooling step. If null, it will default to pool_size.",
+                    "default": "null",
+                    "required": false
+                },
+                "padding": {
+                    "type": "dropdown",
+                    "options": [
+                        "valid",
+                        "same"
+                    ],
+                    "description": "One of \"valid\" or \"same\".",
+                    "default": "valid",
+                    "required": false
+                },
+                "data_format": {
+                    "type": "dropdown",
+                    "options": [
+                        "channels_last",
+                        "channels_first"
+                    ],
+                    "description": "A string, one of channels_last (default) or channels_first. The ordering of the dimensions in the inputs. channels_last corresponds to inputs with shape (batch, steps, features) while channels_first corresponds to inputs with shape (batch, features, steps).",
+                    "default": "channels_last",
+                    "required": false
+                }
+            },
+            "description": "Average pooling operation for spatial data.",
+            "href": "https://www.tensorflow.org/api_docs/python/tf/keras/layers/AveragePooling2D"
+        },
+        {
+            "Type": "AveragePooling3D",
+            "params": [
+                "pool_size",
+                "strides",
+                "padding",
+                "data_format"
+            ],
+            "param_desc": {
+                "pool_size": {
+                    "type": "int",
+                    "min": 0,
+                    "max": null,
+                    "description": "Size of the max pooling window.",
+                    "required": true
+                },
+                "strides": {
+                    "type": [
+                        "int",
+                        "null"
+                    ],
+                    "min": 1,
+                    "max": null,
+                    "description": "Specifies how much the pooling window moves for each pooling step. If null, it will default to pool_size.",
+                    "default": "null",
+                    "required": false
+                },
+                "padding": {
+                    "type": "dropdown",
+                    "options": [
+                        "valid",
+                        "same"
+                    ],
+                    "description": "One of \"valid\" or \"same\".",
+                    "default": "valid",
+                    "required": false
+                },
+                "data_format": {
+                    "type": "dropdown",
+                    "options": [
+                        "channels_last",
+                        "channels_first"
+                    ],
+                    "description": "The ordering of the dimensions in the inputs. channels_last corresponds to inputs with shape (batch, steps, features) while channels_first corresponds to inputs with shape (batch, features, steps).",
+                    "default": "channels_last",
+                    "required": false
+                }
+            },
+            "description": "Average pooling operation for 3D data (spatial or spatio-temporal).",
+            "href": "https://www.tensorflow.org/api_docs/python/tf/keras/layers/AveragePooling3D"
+        },
+        {
+            "Type": "BatchNormalization",
+            "params": [
+                "axis",
+                "momentum",
+                "epsilon",
+                "center",
+                "scale"
+            ],
+            "param_desc": {
+                "axis": {
+                    "type": "int",
+                    "min": null,
+                    "max": null,
+                    "description": "Integer, the axis that should be normalized (typically the features axis). For instance, after a Conv2D layer with data_format=\"channels_first\", set axis=1 in BatchNormalization.",
+                    "default": -1,
+                    "required": false
+                },
+                "momentum": {
+                    "type": "float",
+                    "min": 0.0,
+                    "max": 1.0,
+                    "description": "Float between 0 and 1. The momentum for the moving average.",
+                    "default": 0.99,
+                    "required": false
+                },
+                "epsilon": {
+                    "type": "float",
+                    "min": 0.0,
+                    "max": null,
+                    "description": "Small float added to variance to avoid dividing by zero.",
+                    "default": 0.001,
+                    "required": false
+                },
+                "center": {
+                    "type": "bool",
+                    "description": "If True, add offset of beta to normalized tensor. If False, beta is ignored.",
+                    "default": true,
+                    "required": false
+                },
+                "scale": {
+                    "type": "bool",
+                    "description": "If True, multiply by gamma. If False, gamma is not used. When the next layer is linear (also e.g. nn.relu), this can be disabled since the scaling will be done by the next layer.",
+                    "default": true,
+                    "required": false
+                },
+                "synchronized": {
+                    "type": "bool",
+                    "description": "Only applicable with the TensorFlow backend. If True, synchronizes the global batch statistics (mean and variance) for the layer across all devices at each training step in a distributed training strategy. If False, each replica uses its own local batch statistics."
+                }
+            },
+            "description": "Layer that normalizes its inputs.",
+            "href": "https://www.tensorflow.org/api_docs/python/tf/keras/layers/BatchNormalization"
+        },
+        {
+            "Type": "CategoryEncoding",
+            "params": [
+                "num_tokens",
+                "output_mode"
+            ],
+            "param_desc": {
+                "num_tokens": {
+                    "type": "int",
+                    "min": 0,
+                    "max": null,
+                    "description": "The total number of tokens the layer should support. All inputs to the layer must integers in the range 0 <= value < num_tokens, or an error will be thrown.",
+                    "default": null,
+                    "required": false
+                },
+                "output_mode": {
+                    "type": "dropdown",
+                    "options": [
+                        "multi_hot",
+                        "binary",
+                        "count"
+                    ],
+                    "description": "- `\"one_hot\"`: Encodes each individual element in the input\n    into an array of `num_tokens` size, containing a 1 at the\n    element index. If the last dimension is size 1, will encode\n    on that dimension. If the last dimension is not size 1,\n    will append a new dimension for the encoded output.\n- `\"multi_hot\"`: Encodes each sample in the input into a single\n    array of `num_tokens` size, containing a 1 for each\n    vocabulary term present in the sample. Treats the last\n    dimension as the sample dimension, if input shape is\n    `(..., sample_length)`, output shape will be\n    `(..., num_tokens)`.\n- `\"count\"`: Like `\"multi_hot\"`, but the int array contains a\n    count of the number of times the token at that index\n    appeared in the sample. For all output modes, currently only output up to rank 2 is supported. ",
+                    "default": "multi_hot",
+                    "required": false
+                }
+            },
+            "description": "A preprocessing layer which encodes integer features.",
+            "href": "https://www.tensorflow.org/api_docs/python/tf/keras/layers/CategoryEncoding"
+        },
+        {
+            "Type": "CenterCrop",
+            "params": [
+                "height",
+                "width",
+                "data_format"
+            ],
+            "param_desc": {
+                "height": {
+                    "type": "int",
+                    "min": 0,
+                    "max": null,
+                    "description": "The height of the output.",
+                    "required": true
+                },
+                "width": {
+                    "type": "int",
+                    "min": 0,
+                    "max": null,
+                    "description": "The width of the output.",
+                    "required": true
+                },
+                "data_format": {
+                    "type": "dropdown",
+                    "options": [
+                        "channels_last",
+                        "channels_first"
+                    ],
+                    "description": "The ordering of the dimensions in the inputs. \"channels_last\" corresponds to inputs with shape (batch, height, width, channels) while \"channels_first\" corresponds to inputs with shape (batch, channels, height, width).",
+                    "default": "channels_last",
+                    "required": false
+                }
+            },
+            "description": "A preprocessing layer which crops images.",
+            "href": "https://www.tensorflow.org/api_docs/python/tf/keras/layers/CenterCrop"
+        },
+        {
+            "Type": "Concatenate",
+            "params": [
+                "axis"
+            ],
+            "param_desc": {
+                "axis": {
+                    "type": "int",
+                    "min": null,
+                    "max": null,
+                    "description": "Axis along which to concatenate. (-1 means the last axis, -2 means the second to last axis and so on).",
+                    "default": -1,
+                    "required": false
+                }
+            },
+            "description": "Concatenates a list of inputs.",
+            "href": "https://www.tensorflow.org/api_docs/python/tf/keras/layers/Concatenate"
+        },
+        {
+            "Type": "Conv1D",
+            "params": [
+                "filters",
+                "kernel_size",
+                "strides",
+                "padding",
+                "data_format",
+                "dilation_rate",
+                "groups",
+                "activation",
+                "use_bias"
+            ],
+            "param_desc": {
+                "filters": {
+                    "type": "int",
+                    "min": 1,
+                    "max": null,
+                    "description": "Dimensionality of the output space (i.e. the number of output filters in the convolution).",
+                    "required": true
+                },
+                "kernel_size": {
+                    "type": "int",
+                    "description": "Length of the 1D convolution window.",
+                    "required": true
+                },
+                "strides": {
+                    "type": "int",
+                    "description": "Stride of the convolution.",
+                    "default": 1,
+                    "required": false
+                },
+                "padding": {
+                    "type": "dropdown",
+                    "options": [
+                        "valid",
+                        "same",
+                        "causal"
+                    ],
+                    "description": "\"valid\" means no padding. \"same\" results in padding evenly to the left/right or up/down of the input. When padding=\"same\" and strides=1, the output has the same size as the input. \"causal\" results in causal(dilated) convolutions, e.g. output[t] does not depend oninput[t+1:]. Useful when modeling temporal data where the model should not violate the temporal order.",
+                    "default": "valid",
+                    "required": false
+                },
+                "data_format": {
+                    "type": "dropdown",
+                    "options": [
+                        "channels_last",
+                        "channels_first"
+                    ],
+                    "description": "The ordering of the dimensions in the inputs. \"channels_last\" corresponds to inputs with shape (batch, steps, features) while \"channels_first\" corresponds to inputs with shape (batch, features, steps).",
+                    "default": "channels_last",
+                    "required": false
+                },
+                "dilation_rate": {
+                    "type": "int",
+                    "description": "Dilation rate to use for dilated convolution.",
+                    "default": 1,
+                    "required": false
+                },
+                "groups": {
+                    "type": "int",
+                    "min": 1,
+                    "max": null,
+                    "description": "the number of groups in which the input is split along the channel axis. Each group is convolved separately with filters // groups filters. The output is the concatenation of all the groups results along the channel axis. Input channels and filters must both be divisible by groups.",
+                    "default": 1,
+                    "required": false
+                },
+                "activation": {
+                    "type": "dropdown",
+                    "options": [
+                        "linear",
+                        "deserialize",
+                        "elu",
+                        "exponential",
+                        "gelu",
+                        "hard_sigmoid",
+                        "hard_silu",
+                        "leaky_relu",
+                        "log_softmax",
+                        "mish",
+                        "relu",
+                        "relu6",
+                        "selu",
+                        "serialize",
+                        "softmax",
+                        "softplus",
+                        "softsign",
+                        "swish",
+                        "tanh"
+                    ],
+                    "description": "Activation function to use.",
+                    "default": "linear",
+                    "required": false
+                },
+                "use_bias": {
+                    "type": "bool",
+                    "description": "Whether the layer uses a bias vector.",
+                    "default": true,
+                    "required": false
+                }
+            },
+            "description": "1D convolution layer (e.g. temporal convolution).",
+            "href": "https://www.tensorflow.org/api_docs/python/tf/keras/layers/Conv1D"
+        },
+        {
+            "Type": "Conv1DTranspose",
+            "params": [
+                "filters",
+                "kernel_size",
+                "strides",
+                "padding",
+                "data_format",
+                "dilation_rate",
+                "groups",
+                "activation",
+                "use_bias"
+            ],
+            "param_desc": {
+                "filters": {
+                    "type": "int",
+                    "min": 1,
+                    "max": null,
+                    "description": "Dimensionality of the output space (i.e. the number of output filters in the convolution).",
+                    "required": true
+                },
+                "kernel_size": {
+                    "type": "int",
+                    "min": 1,
+                    "max": null,
+                    "description": "Length of the 1D convolution window.",
+                    "required": true
+                },
+                "strides": {
+                    "type": "int",
+                    "description": "Stride of the convolution.",
+                    "default": 1,
+                    "required": false
+                },
+                "padding": {
+                    "type": "dropdown",
+                    "options": [
+                        "valid",
+                        "same",
+                        "causal"
+                    ],
+                    "description": "\"valid\" means no padding. \"same\" results in padding evenly to the left/right or up/down of the input. When padding=\"same\" and strides=1, the output has the same size as the input. \"causal\" results in causal(dilated) convolutions, e.g. output[t] does not depend oninput[t+1:]. Useful when modeling temporal data where the model should not violate the temporal order.",
+                    "default": "valid",
+                    "required": false
+                },
+                "data_format": {
+                    "type": "dropdown",
+                    "options": [
+                        "channels_last",
+                        "channels_first"
+                    ],
+                    "description": "The ordering of the dimensions in the inputs. \"channels_last\" corresponds to inputs with shape (batch, steps, features) while \"channels_first\" corresponds to inputs with shape (batch, features, steps).",
+                    "default": "channels_last",
+                    "required": false
+                },
+                "dilation_rate": {
+                    "type": "int",
+                    "description": "Dilation rate to use for dilated convolution.",
+                    "default": 1,
+                    "required": false
+                },
+                "groups": {
+                    "type": "int",
+                    "min": 1,
+                    "max": null,
+                    "description": "the number of groups in which the input is split along the channel axis. Each group is convolved separately with filters // groups filters. The output is the concatenation of all the groups results along the channel axis. Input channels and filters must both be divisible by groups.",
+                    "default": 1,
+                    "required": false
+                },
+                "activation": {
+                    "type": "dropdown",
+                    "options": [
+                        "linear",
+                        "deserialize",
+                        "elu",
+                        "exponential",
+                        "gelu",
+                        "hard_sigmoid",
+                        "hard_silu",
+                        "leaky_relu",
+                        "log_softmax",
+                        "mish",
+                        "relu",
+                        "relu6",
+                        "selu",
+                        "serialize",
+                        "softmax",
+                        "softplus",
+                        "softsign",
+                        "swish",
+                        "tanh"
+                    ],
+                    "description": "Activation function to use.",
+                    "default": "linear",
+                    "required": false
+                },
+                "use_bias": {
+                    "type": "bool",
+                    "description": "Whether the layer uses a bias vector.",
+                    "default": true,
+                    "required": false
+                }
+            },
+            "description": "1D transposed convolution layer",
+            "href": "https://www.tensorflow.org/api_docs/python/tf/keras/layers/Conv1DTanspose"
+        },
+        {
+            "Type": "Conv2D",
+            "params": [
+                "filters",
+                "kernel_size",
+                "strides",
+                "padding",
+                "data_format",
+                "dilation_rate",
+                "groups",
+                "activation",
+                "use_bias"
+            ],
+            "param_desc": {
+                "filters": {
+                    "type": "int",
+                    "min": 1,
+                    "max": null,
+                    "description": "the dimension of the output space (the number of filters in the convolution).",
+                    "required": true
+                },
+                "kernel_size": {
+                    "type": "list",
+                    "min_size": 1,
+                    "max_size": 2,
+                    "description": "specifying the size of the convolution window. (if only one integer is provided it is the same for all spatial dimensions).",
+                    "required": true
+                },
+                "strides": {
+                    "type": "list",
+                    "min_size": 1,
+                    "max_size": 2,
+                    "description": "Stride of the convolution. (if only one integer is provided it is the same for all spatial dimensions).",
+                    "default": "1,1",
+                    "required": false
+                },
+                "padding": {
+                    "type": "dropdown",
+                    "options": [
+                        "valid",
+                        "same",
+                        "causal"
+                    ],
+                    "description": "\"valid\" means no padding. \"same\" results in padding evenly to the left/right or up/down of the input. When padding=\"same\" and strides=1, the output has the same size as the input. \"causal\" results in causal(dilated) convolutions, e.g. output[t] does not depend oninput[t+1:]. Useful when modeling temporal data where the model should not violate the temporal order.",
+                    "default": "valid",
+                    "required": false
+                },
+                "data_format": {
+                    "type": "dropdown",
+                    "options": [
+                        "channels_last",
+                        "channels_first"
+                    ],
+                    "description": "The ordering of the dimensions in the inputs. \"channels_last\" corresponds to inputs with shape (batch, steps, features) while \"channels_first\" corresponds to inputs with shape (batch, features, steps).",
+                    "default": "channels_last",
+                    "required": false
+                },
+                "dilation_rate": {
+                    "type": "list",
+                    "min_size": 1,
+                    "max_size": 2,
+                    "description": "Dilation rate to use for dilated convolution. (if only one integer is provided it is the same for all spatial dimensions).",
+                    "default": "1,1",
+                    "required": false
+                },
+                "groups": {
+                    "type": "int",
+                    "min": 1,
+                    "max": null,
+                    "description": "the number of groups in which the input is split along the channel axis. Each group is convolved separately with filters // groups filters. The output is the concatenation of all the groups results along the channel axis. Input channels and filters must both be divisible by groups.",
+                    "default": 1,
+                    "required": false
+                },
+                "activation": {
+                    "type": "dropdown",
+                    "options": [
+                        "linear",
+                        "deserialize",
+                        "elu",
+                        "exponential",
+                        "gelu",
+                        "hard_sigmoid",
+                        "hard_silu",
+                        "leaky_relu",
+                        "log_softmax",
+                        "mish",
+                        "relu",
+                        "relu6",
+                        "selu",
+                        "serialize",
+                        "softmax",
+                        "softplus",
+                        "softsign",
+                        "swish",
+                        "tanh"
+                    ],
+                    "description": "Activation function to use.",
+                    "default": "linear",
+                    "required": false
+                },
+                "use_bias": {
+                    "type": "bool",
+                    "description": "Whether the layer uses a bias vector.",
+                    "default": true,
+                    "required": false
+                }
+            },
+            "description": "2D convolution layer",
+            "href": "https://www.tensorflow.org/api_docs/python/tf/keras/layers/Conv2D"
+        },
+        {
+            "Type": "Conv2DTranspose",
+            "params": [
+                "filters",
+                "kernel_size",
+                "strides",
+                "padding",
+                "data_format",
+                "dilation_rate",
+                "groups",
+                "activation",
+                "use_bias"
+            ],
+            "param_desc": {
+                "filters": {
+                    "type": "int",
+                    "min": 1,
+                    "max": null,
+                    "description": "the dimension of the output space (the number of filters in the convolution).",
+                    "required": true
+                },
+                "kernel_size": {
+                    "type": "list",
+                    "min_size": 1,
+                    "max_size": 2,
+                    "description": "specifying the size of the convolution window. (if only one integer is provided it is the same for all spatial dimensions).",
+                    "required": true
+                },
+                "strides": {
+                    "type": "list",
+                    "min_size": 1,
+                    "max_size": 2,
+                    "description": "Stride of the convolution. (if only one integer is provided it is the same for all spatial dimensions).",
+                    "default": "1,1",
+                    "required": false
+                },
+                "padding": {
+                    "type": "dropdown",
+                    "options": [
+                        "valid",
+                        "same",
+                        "causal"
+                    ],
+                    "description": "\"valid\" means no padding. \"same\" results in padding evenly to the left/right or up/down of the input. When padding=\"same\" and strides=1, the output has the same size as the input. \"causal\" results in causal(dilated) convolutions, e.g. output[t] does not depend oninput[t+1:]. Useful when modeling temporal data where the model should not violate the temporal order.",
+                    "default": "valid",
+                    "required": false
+                },
+                "data_format": {
+                    "type": "dropdown",
+                    "options": [
+                        "channels_last",
+                        "channels_first"
+                    ],
+                    "description": "The ordering of the dimensions in the inputs. \"channels_last\" corresponds to inputs with shape (batch, steps, features) while \"channels_first\" corresponds to inputs with shape (batch, features, steps).",
+                    "default": "channels_last",
+                    "required": false
+                },
+                "dilation_rate": {
+                    "type": "list",
+                    "min_size": 1,
+                    "max_size": 2,
+                    "description": "Dilation rate to use for dilated convolution. (if only one integer is provided it is the same for all spatial dimensions).",
+                    "default": "1,1",
+                    "required": false
+                },
+                "groups": {
+                    "type": "int",
+                    "min": 1,
+                    "max": null,
+                    "description": "the number of groups in which the input is split along the channel axis. Each group is convolved separately with filters // groups filters. The output is the concatenation of all the groups results along the channel axis. Input channels and filters must both be divisible by groups.",
+                    "default": 1,
+                    "required": false
+                },
+                "activation": {
+                    "type": "dropdown",
+                    "options": [
+                        "linear",
+                        "deserialize",
+                        "elu",
+                        "exponential",
+                        "gelu",
+                        "hard_sigmoid",
+                        "hard_silu",
+                        "leaky_relu",
+                        "log_softmax",
+                        "mish",
+                        "relu",
+                        "relu6",
+                        "selu",
+                        "serialize",
+                        "softmax",
+                        "softplus",
+                        "softsign",
+                        "swish",
+                        "tanh"
+                    ],
+                    "description": "Activation function to use.",
+                    "default": "linear",
+                    "required": false
+                },
+                "use_bias": {
+                    "type": "bool",
+                    "description": "Whether the layer uses a bias vector.",
+                    "default": true,
+                    "required": false
+                }
+            },
+            "description": "2D transposed convolution layer",
+            "href": "https://www.tensorflow.org/api_docs/python/tf/keras/layers/Conv2DTranspose"
+        },
+        {
+            "Type": "Conv3D",
+            "params": [
+                "filters",
+                "kernel_size",
+                "strides",
+                "padding",
+                "data_format",
+                "dilation_rate",
+                "groups",
+                "activation",
+                "use_bias"
+            ],
+            "param_desc": {
+                "filters": {
+                    "type": "int",
+                    "min": 1,
+                    "max": null,
+                    "description": "the dimension of the output space (the number of filters in the convolution).",
+                    "required": true
+                },
+                "kernel_size": {
+                    "type": "list",
+                    "min_size": 1,
+                    "max_size": 3,
+                    "description": "specifying the size of the convolution window. (if only one integer is provided it is the same for all spatial dimensions).",
+                    "required": true
+                },
+                "strides": {
+                    "type": "list",
+                    "min_size": 1,
+                    "max_size": 3,
+                    "description": "Stride of the convolution. (if only one integer is provided it is the same for all spatial dimensions).",
+                    "default": "1,1,1",
+                    "required": false
+                },
+                "padding": {
+                    "type": "dropdown",
+                    "options": [
+                        "valid",
+                        "same",
+                        "causal"
+                    ],
+                    "description": "\"valid\" means no padding. \"same\" results in padding evenly to the left/right or up/down of the input. When padding=\"same\" and strides=1, the output has the same size as the input. \"causal\" results in causal(dilated) convolutions, e.g. output[t] does not depend oninput[t+1:]. Useful when modeling temporal data where the model should not violate the temporal order.",
+                    "default": "valid",
+                    "required": false
+                },
+                "data_format": {
+                    "type": "dropdown",
+                    "options": [
+                        "channels_last",
+                        "channels_first"
+                    ],
+                    "description": "The ordering of the dimensions in the inputs. \"channels_last\" corresponds to inputs with shape (batch, steps, features) while \"channels_first\" corresponds to inputs with shape (batch, features, steps).",
+                    "default": "channels_last",
+                    "required": false
+                },
+                "dilation_rate": {
+                    "type": "list",
+                    "min_size": 1,
+                    "max_size": 3,
+                    "description": "Dilation rate to use for dilated convolution. (if only one integer is provided it is the same for all spatial dimensions).",
+                    "default": "1,1,1",
+                    "required": false
+                },
+                "groups": {
+                    "type": "int",
+                    "min": 1,
+                    "max": null,
+                    "description": "the number of groups in which the input is split along the channel axis. Each group is convolved separately with filters // groups filters. The output is the concatenation of all the groups results along the channel axis. Input channels and filters must both be divisible by groups.",
+                    "default": 1,
+                    "required": false
+                },
+                "activation": {
+                    "type": "dropdown",
+                    "options": [
+                        "linear",
+                        "deserialize",
+                        "elu",
+                        "exponential",
+                        "gelu",
+                        "hard_sigmoid",
+                        "hard_silu",
+                        "leaky_relu",
+                        "log_softmax",
+                        "mish",
+                        "relu",
+                        "relu6",
+                        "selu",
+                        "serialize",
+                        "softmax",
+                        "softplus",
+                        "softsign",
+                        "swish",
+                        "tanh"
+                    ],
+                    "description": "Activation function to use.",
+                    "default": "linear",
+                    "required": false
+                },
+                "use_bias": {
+                    "type": "bool",
+                    "description": "Whether the layer uses a bias vector.",
+                    "default": true,
+                    "required": false
+                }
+            },
+            "description": "3D convolution layer",
+            "href": "https://www.tensorflow.org/api_docs/python/tf/keras/layers/Conv3D"
+        },
+        {
+            "Type": "Conv3DTranspose",
+            "params": [
+                "filters",
+                "kernel_size",
+                "strides",
+                "padding",
+                "data_format",
+                "dilation_rate",
+                "groups",
+                "activation",
+                "use_bias"
+            ],
+            "param_desc": {
+                "filters": {
+                    "type": "int",
+                    "min": 1,
+                    "max": null,
+                    "description": "the dimension of the output space (the number of filters in the convolution).",
+                    "required": true
+                },
+                "kernel_size": {
+                    "type": "list",
+                    "min_size": 1,
+                    "max_size": 3,
+                    "description": "specifying the size of the convolution window. (if only one integer is provided it is the same for all spatial dimensions).",
+                    "required": true
+                },
+                "strides": {
+                    "type": "list",
+                    "min_size": 1,
+                    "max_size": 3,
+                    "description": "Stride of the convolution. (if only one integer is provided it is the same for all spatial dimensions).",
+                    "default": "1,1,1",
+                    "required": false
+                },
+                "padding": {
+                    "type": "dropdown",
+                    "options": [
+                        "valid",
+                        "same",
+                        "causal"
+                    ],
+                    "description": "\"valid\" means no padding. \"same\" results in padding evenly to the left/right or up/down of the input. When padding=\"same\" and strides=1, the output has the same size as the input. \"causal\" results in causal(dilated) convolutions, e.g. output[t] does not depend oninput[t+1:]. Useful when modeling temporal data where the model should not violate the temporal order.",
+                    "default": "valid",
+                    "required": false
+                },
+                "data_format": {
+                    "type": "dropdown",
+                    "options": [
+                        "channels_last",
+                        "channels_first"
+                    ],
+                    "description": "The ordering of the dimensions in the inputs. \"channels_last\" corresponds to inputs with shape (batch, steps, features) while \"channels_first\" corresponds to inputs with shape (batch, features, steps).",
+                    "default": "channels_last",
+                    "required": false
+                },
+                "dilation_rate": {
+                    "type": "list",
+                    "min_size": 1,
+                    "max_size": 3,
+                    "description": "Dilation rate to use for dilated convolution. (if only one integer is provided it is the same for all spatial dimensions).",
+                    "default": "1,1,1",
+                    "required": false
+                },
+                "groups": {
+                    "type": "int",
+                    "min": 1,
+                    "max": null,
+                    "description": "the number of groups in which the input is split along the channel axis. Each group is convolved separately with filters // groups filters. The output is the concatenation of all the groups results along the channel axis. Input channels and filters must both be divisible by groups.",
+                    "default": 1,
+                    "required": false
+                },
+                "activation": {
+                    "type": "dropdown",
+                    "options": [
+                        "linear",
+                        "deserialize",
+                        "elu",
+                        "exponential",
+                        "gelu",
+                        "hard_sigmoid",
+                        "hard_silu",
+                        "leaky_relu",
+                        "log_softmax",
+                        "mish",
+                        "relu",
+                        "relu6",
+                        "selu",
+                        "serialize",
+                        "softmax",
+                        "softplus",
+                        "softsign",
+                        "swish",
+                        "tanh"
+                    ],
+                    "description": "Activation function to use.",
+                    "default": "linear",
+                    "required": false
+                },
+                "use_bias": {
+                    "type": "bool",
+                    "description": "Whether the layer uses a bias vector.",
+                    "default": true,
+                    "required": false
+                }
+            },
+            "description": "3D transposed convolution layer",
+            "href": "https://www.tensorflow.org/api_docs/python/tf/keras/layers/Conv3DTranspose"
+        },
+        {
+            "Type": "ConvLSTM1D",
+            "params": [
+                "filters",
+                "kernel_size",
+                "strides",
+                "padding",
+                "data_format",
+                "dilation_rate",
+                "activation",
+                "recurrent_activation",
+                "use_bias",
+                "unit_forget_bias",
+                "dropout",
+                "recurrent_dropout",
+                "seed",
+                "return_sequences",
+                "return_state",
+                "go_backwards",
+                "stateful"
+            ],
+            "param_desc": {
+                "filters": {
+                    "type": "int",
+                    "min": 1,
+                    "max": null,
+                    "description": "Dimensionality of the output space (i.e. the number of output filters in the convolution).",
+                    "required": true
+                },
+                "kernel_size": {
+                    "type": "int",
+                    "description": "specifying the size of the convolution window.",
+                    "required": true
+                },
+                "strides": {
+                    "type": "int",
+                    "description": "specifying the stride length of the convolution. strides > 1 is incompatible with dilation_rate > 1.",
+                    "default": 1,
+                    "required": false
+                },
+                "padding": {
+                    "type": "dropdown",
+                    "options": [
+                        "valid",
+                        "same"
+                    ],
+                    "description": "\"valid\" means no padding. \"same\" results in padding evenly to the left/right or up/down of the input. When padding=\"same\" and strides=1, the output has the same size as the input. \"causal\" results in causal(dilated) convolutions, e.g. output[t] does not depend oninput[t+1:]. Useful when modeling temporal data where the model should not violate the temporal order.",
+                    "default": "valid",
+                    "required": false
+                },
+                "data_format": {
+                    "type": "dropdown",
+                    "options": [
+                        "channels_last",
+                        "channels_first"
+                    ],
+                    "description": "The ordering of the dimensions in the inputs. \"channels_last\" corresponds to inputs with shape (batch, steps, features) while \"channels_first\" corresponds to inputs with shape (batch, features, steps).",
+                    "default": "channels_last",
+                    "required": false
+                },
+                "dilation_rate": {
+                    "type": "int",
+                    "description": "Dilation rate to use for dilated convolution.",
+                    "default": 1,
+                    "required": false
+                },
+                "activation": {
+                    "type": "dropdown",
+                    "options": [
+                        "tanh",
+                        "deserialize",
+                        "elu",
+                        "exponential",
+                        "gelu",
+                        "hard_sigmoid",
+                        "hard_silu",
+                        "leaky_relu",
+                        "linear",
+                        "log_softmax",
+                        "mish",
+                        "relu",
+                        "relu6",
+                        "selu",
+                        "serialize",
+                        "softmax",
+                        "softplus",
+                        "softsign",
+                        "swish"
+                    ],
+                    "description": "Activation function to use.",
+                    "default": "tanh",
+                    "required": false
+                },
+                "recurrent_activation": {
+                    "type": "dropdown",
+                    "options": [
+                        "sigmoid",
+                        "deserialize",
+                        "elu",
+                        "exponential",
+                        "gelu",
+                        "hard_sigmoid",
+                        "hard_silu",
+                        "leaky_relu",
+                        "linear",
+                        "log_softmax",
+                        "mish",
+                        "relu",
+                        "relu6",
+                        "selu",
+                        "serialize",
+                        "softmax",
+                        "softplus",
+                        "softsign",
+                        "swish"
+                    ],
+                    "description": "Activation function to use for the recurrent step.",
+                    "default": "sigmoid",
+                    "required": false
+                },
+                "use_bias": {
+                    "type": "bool",
+                    "description": "Whether the layer uses a bias vector.",
+                    "default": true,
+                    "required": false
+                },
+                "unit_forget_bias": {
+                    "type": "bool",
+                    "description": "If True, add 1 to the bias of the forget gate at initialization. Setting it to true will also force bias_initializer=\"zeros\". This is recommended in Jozefowicz et al. 2015",
+                    "default": true,
+                    "required": false
+                },
+                "dropout": {
+                    "type": "float",
+                    "min": 0.0,
+                    "max": 1.0,
+                    "description": "Float between 0 and 1. Fraction of the units to drop for the linear transformation of the inputs.",
+                    "default": 0.0,
+                    "required": false
+                },
+                "recurrent_dropout": {
+                    "type": "float",
+                    "min": 0.0,
+                    "max": 1.0,
+                    "description": "Float between 0 and 1. Fraction of the units to drop for the linear transformation of the recurrent state.",
+                    "default": 0.0,
+                    "required": false
+                },
+                "seed": {
+                    "type": [
+                        "int",
+                        "null"
+                    ],
+                    "min": null,
+                    "max": null,
+                    "description": "A Python integer to use as random seed.",
+                    "default": "null",
+                    "required": false
+                },
+                "return_sequences": {
+                    "type": "bool",
+                    "description": "Whether to return the last output in the output sequence, or the full sequence.",
+                    "default": false,
+                    "required": false
+                },
+                "return_state": {
+                    "type": "bool",
+                    "description": "Whether to return the last state in addition to the output.",
+                    "default": false,
+                    "required": false
+                },
+                "go_backwards": {
+                    "type": "bool",
+                    "description": "If True, process the input sequence backwards.",
+                    "default": false,
+                    "required": false
+                },
+                "stateful": {
+                    "type": "bool",
+                    "description": "If True, the last state for each sample at index i in a batch will be used as initial state for the sample of index i in the following batch.",
+                    "default": false,
+                    "required": false
+                },
+                "unroll": {
+                    "type": "bool",
+                    "description": "If True, the network will be unrolled, else a symbolic loop will be used. Unrolling can speed-up a RNN, although it tends to be more memory-intensive. Unrolling is only suitable for short sequences."
+                }
+            },
+            "description": "Similar to an LSTM layer, but the input transformations and recurrent transformations are both convolutional.",
+            "href": "https://www.tensorflow.org/api_docs/python/tf/keras/layers/ConvLSTM1D"
+        },
+        {
+            "Type": "ConvLSTM2D",
+            "params": [
+                "filters",
+                "kernel_size",
+                "strides",
+                "padding",
+                "data_format",
+                "dilation_rate",
+                "activation",
+                "recurrent_activation",
+                "use_bias",
+                "unit_forget_bias",
+                "dropout",
+                "recurrent_dropout",
+                "seed",
+                "return_sequences",
+                "return_state",
+                "go_backwards",
+                "stateful"
+            ],
+            "param_desc": {
+                "filters": {
+                    "type": "int",
+                    "min": 1,
+                    "max": null,
+                    "description": "Dimensionality of the output space (i.e. the number of output filters in the convolution).",
+                    "required": true
+                },
+                "kernel_size": {
+                    "type": "list",
+                    "min_size": 1,
+                    "max_size": 2,
+                    "description": "specifying the size of the convolution window. (if only one integer is provided it is the same for all spatial dimensions).",
+                    "required": true
+                },
+                "strides": {
+                    "type": "list",
+                    "min_size": 1,
+                    "max_size": 2,
+                    "description": "Stride of the convolution. (if only one integer is provided it is the same for all spatial dimensions).",
+                    "default": "1,1",
+                    "required": false
+                },
+                "padding": {
+                    "type": "dropdown",
+                    "options": [
+                        "valid",
+                        "same",
+                        "causal"
+                    ],
+                    "description": "\"valid\" means no padding. \"same\" results in padding evenly to the left/right or up/down of the input. When padding=\"same\" and strides=1, the output has the same size as the input. \"causal\" results in causal(dilated) convolutions, e.g. output[t] does not depend oninput[t+1:]. Useful when modeling temporal data where the model should not violate the temporal order.",
+                    "default": "valid",
+                    "required": false
+                },
+                "data_format": {
+                    "type": "dropdown",
+                    "options": [
+                        "channels_last",
+                        "channels_first"
+                    ],
+                    "description": "The ordering of the dimensions in the inputs. \"channels_last\" corresponds to inputs with shape (batch, steps, features) while \"channels_first\" corresponds to inputs with shape (batch, features, steps).",
+                    "default": "channels_last",
+                    "required": false
+                },
+                "dilation_rate": {
+                    "type": [
+                        "int",
+                        "list"
+                    ],
+                    "min_size": 1,
+                    "max_size": 2,
+                    "description": "Dilation rate to use for dilated convolution. (if only one integer is provided it is the same for all spatial dimensions).",
+                    "default": 1,
+                    "required": false
+                },
+                "activation": {
+                    "type": "dropdown",
+                    "options": [
+                        "tanh",
+                        "deserialize",
+                        "elu",
+                        "exponential",
+                        "gelu",
+                        "hard_sigmoid",
+                        "hard_silu",
+                        "leaky_relu",
+                        "linear",
+                        "log_softmax",
+                        "mish",
+                        "relu",
+                        "relu6",
+                        "selu",
+                        "serialize",
+                        "softmax",
+                        "softplus",
+                        "softsign",
+                        "swish"
+                    ],
+                    "description": "Activation function to use.",
+                    "default": "tanh",
+                    "required": false
+                },
+                "recurrent_activation": {
+                    "type": "dropdown",
+                    "options": [
+                        "sigmoid",
+                        "deserialize",
+                        "elu",
+                        "exponential",
+                        "gelu",
+                        "hard_sigmoid",
+                        "hard_silu",
+                        "leaky_relu",
+                        "linear",
+                        "log_softmax",
+                        "mish",
+                        "relu",
+                        "relu6",
+                        "selu",
+                        "serialize",
+                        "softmax",
+                        "softplus",
+                        "softsign",
+                        "swish"
+                    ],
+                    "description": "Activation function to use for the recurrent step.",
+                    "default": "sigmoid",
+                    "required": false
+                },
+                "use_bias": {
+                    "type": "bool",
+                    "description": "Whether the layer uses a bias vector.",
+                    "default": true,
+                    "required": false
+                },
+                "unit_forget_bias": {
+                    "type": "bool",
+                    "description": "If True, add 1 to the bias of the forget gate at initialization. Setting it to true will also force bias_initializer=\"zeros\". This is recommended in Jozefowicz et al. 2015",
+                    "default": true,
+                    "required": false
+                },
+                "dropout": {
+                    "type": "float",
+                    "min": 0.0,
+                    "max": 1.0,
+                    "description": "Float between 0 and 1. Fraction of the units to drop for the linear transformation of the inputs.",
+                    "default": 0.0,
+                    "required": false
+                },
+                "recurrent_dropout": {
+                    "type": "float",
+                    "min": 0.0,
+                    "max": 1.0,
+                    "description": "Float between 0 and 1. Fraction of the units to drop for the linear transformation of the recurrent state.",
+                    "default": 0.0,
+                    "required": false
+                },
+                "seed": {
+                    "type": [
+                        "int",
+                        "null"
+                    ],
+                    "min": null,
+                    "max": null,
+                    "description": "A Python integer to use as random seed.",
+                    "default": "null",
+                    "required": false
+                },
+                "return_sequences": {
+                    "type": "bool",
+                    "description": "Whether to return the last output in the output sequence, or the full sequence.",
+                    "default": false,
+                    "required": false
+                },
+                "return_state": {
+                    "type": "bool",
+                    "description": "Whether to return the last state in addition to the output.",
+                    "default": false,
+                    "required": false
+                },
+                "go_backwards": {
+                    "type": "bool",
+                    "description": "If True, process the input sequence backwards.",
+                    "default": false,
+                    "required": false
+                },
+                "stateful": {
+                    "type": "bool",
+                    "description": "If True, the last state for each sample at index i in a batch will be used as initial state for the sample of index i in the following batch.",
+                    "default": false,
+                    "required": false
+                },
+                "unroll": {
+                    "type": "bool",
+                    "description": "If True, the network will be unrolled, else a symbolic loop will be used. Unrolling can speed-up a RNN, although it tends to be more memory-intensive. Unrolling is only suitable for short sequences."
+                }
+            },
+            "description": "Similar to an LSTM layer, but the input transformations and recurrent transformations are both convolutional.",
+            "href": "https://www.tensorflow.org/api_docs/python/tf/keras/layers/ConvLSTM2D"
+        },
+        {
+            "Type": "ConvLSTM3D",
+            "params": [
+                "filters",
+                "kernel_size",
+                "strides",
+                "padding",
+                "data_format",
+                "dilation_rate",
+                "activation",
+                "recurrent_activation",
+                "use_bias",
+                "unit_forget_bias",
+                "dropout",
+                "recurrent_dropout",
+                "seed",
+                "return_sequences",
+                "return_state",
+                "go_backwards",
+                "stateful"
+            ],
+            "param_desc": {
+                "filters": {
+                    "type": "int",
+                    "min": 1,
+                    "max": null,
+                    "description": "Dimensionality of the output space (i.e. the number of output filters in the convolution).",
+                    "required": true
+                },
+                "kernel_size": {
+                    "type": "list",
+                    "min_size": 1,
+                    "max_size": 3,
+                    "description": "specifying the size of the convolution window. (if only one integer is provided it is the same for all spatial dimensions).",
+                    "required": true
+                },
+                "strides": {
+                    "type": "list",
+                    "min_size": 1,
+                    "max_size": 3,
+                    "description": "Stride of the convolution. (if only one integer is provided it is the same for all spatial dimensions).",
+                    "default": "1,1,1",
+                    "required": false
+                },
+                "padding": {
+                    "type": "dropdown",
+                    "options": [
+                        "valid",
+                        "same",
+                        "causal"
+                    ],
+                    "description": "\"valid\" means no padding. \"same\" results in padding evenly to the left/right or up/down of the input. When padding=\"same\" and strides=1, the output has the same size as the input. \"causal\" results in causal(dilated) convolutions, e.g. output[t] does not depend oninput[t+1:]. Useful when modeling temporal data where the model should not violate the temporal order.",
+                    "default": "valid",
+                    "required": false
+                },
+                "data_format": {
+                    "type": "dropdown",
+                    "options": [
+                        "channels_last",
+                        "channels_first"
+                    ],
+                    "description": "The ordering of the dimensions in the inputs. \"channels_last\" corresponds to inputs with shape (batch, steps, features) while \"channels_first\" corresponds to inputs with shape (batch, features, steps).",
+                    "default": "channels_last",
+                    "required": false
+                },
+                "dilation_rate": {
+                    "type": [
+                        "int",
+                        "list"
+                    ],
+                    "min_size": 1,
+                    "max_size": 3,
+                    "description": "Dilation rate to use for dilated convolution. (if only one integer is provided it is the same for all spatial dimensions).",
+                    "default": 1,
+                    "required": false
+                },
+                "activation": {
+                    "type": "dropdown",
+                    "options": [
+                        "tanh",
+                        "deserialize",
+                        "elu",
+                        "exponential",
+                        "gelu",
+                        "hard_sigmoid",
+                        "hard_silu",
+                        "leaky_relu",
+                        "linear",
+                        "log_softmax",
+                        "mish",
+                        "relu",
+                        "relu6",
+                        "selu",
+                        "serialize",
+                        "softmax",
+                        "softplus",
+                        "softsign",
+                        "swish"
+                    ],
+                    "description": "Activation function to use.",
+                    "default": "tanh",
+                    "required": false
+                },
+                "recurrent_activation": {
+                    "type": "dropdown",
+                    "options": [
+                        "sigmoid",
+                        "deserialize",
+                        "elu",
+                        "exponential",
+                        "gelu",
+                        "hard_sigmoid",
+                        "hard_silu",
+                        "leaky_relu",
+                        "linear",
+                        "log_softmax",
+                        "mish",
+                        "relu",
+                        "relu6",
+                        "selu",
+                        "serialize",
+                        "softmax",
+                        "softplus",
+                        "softsign",
+                        "swish"
+                    ],
+                    "description": "Activation function to use for the recurrent step.",
+                    "default": "sigmoid",
+                    "required": false
+                },
+                "use_bias": {
+                    "type": "bool",
+                    "description": "Whether the layer uses a bias vector.",
+                    "default": true,
+                    "required": false
+                },
+                "unit_forget_bias": {
+                    "type": "bool",
+                    "description": "If True, add 1 to the bias of the forget gate at initialization. Setting it to true will also force bias_initializer=\"zeros\". This is recommended in Jozefowicz et al. 2015",
+                    "default": true,
+                    "required": false
+                },
+                "dropout": {
+                    "type": "float",
+                    "min": 0.0,
+                    "max": 1.0,
+                    "description": "Float between 0 and 1. Fraction of the units to drop for the linear transformation of the inputs.",
+                    "default": 0.0,
+                    "required": false
+                },
+                "recurrent_dropout": {
+                    "type": "float",
+                    "min": 0.0,
+                    "max": 1.0,
+                    "description": "Float between 0 and 1. Fraction of the units to drop for the linear transformation of the recurrent state.",
+                    "default": 0.0,
+                    "required": false
+                },
+                "seed": {
+                    "type": [
+                        "int",
+                        "null"
+                    ],
+                    "min": null,
+                    "max": null,
+                    "description": "A Python integer to use as random seed,",
+                    "default": "null",
+                    "required": false
+                },
+                "return_sequences": {
+                    "type": "bool",
+                    "description": "Whether to return the last output in the output sequence, or the full sequence.",
+                    "default": false,
+                    "required": false
+                },
+                "return_state": {
+                    "type": "bool",
+                    "description": "Whether to return the last state in addition to the output.",
+                    "default": false,
+                    "required": false
+                },
+                "go_backwards": {
+                    "type": "bool",
+                    "description": "If True, process the input sequence backwards.",
+                    "default": false,
+                    "required": false
+                },
+                "stateful": {
+                    "type": "bool",
+                    "description": "If True, the last state for each sample at index i in a batch will be used as initial state for the sample of index i in the following batch.",
+                    "default": false,
+                    "required": false
+                },
+                "unroll": {
+                    "type": "bool",
+                    "description": "If True, the network will be unrolled, else a symbolic loop will be used. Unrolling can speed-up a RNN, although it tends to be more memory-intensive. Unrolling is only suitable for short sequences."
+                }
+            },
+            "description": "Similar to an LSTM layer, but the input transformations and recurrent transformations are both convolutional.",
+            "href": "https://www.tensorflow.org/api_docs/python/tf/keras/layers/ConvLSTM3D"
+        },
+        {
+            "Type": "Cropping1D",
+            "params": [
+                "cropping"
+            ],
+            "param_desc": {
+                "cropping": {
+                    "type": "list",
+                    "min_size": 1,
+                    "max_size": 2,
+                    "description": "If int: how many units should be trimmed off at the beginning and end of the cropping dimension (axis 1).\nIf tuple of 2 ints: how many units should be trimmed off at the beginning and end of the cropping dimension ((left_crop, right_crop)).",
+                    "default": "1,1",
+                    "required": false
+                }
+            },
+            "description": "Cropping layer for 1D input (e.g. temporal sequence).",
+            "href": "https://www.tensorflow.org/api_docs/python/tf/keras/layers/Cropping1D"
+        },
+        {
+            "Type": "Dense",
+            "params": [
+                "units",
+                "activation",
+                "use_bias",
+                "lora_rank"
+            ],
+            "param_desc": {
+                "units": {
+                    "type": "int",
+                    "min": 1,
+                    "max": null,
+                    "description": "Positive integer, dimensionality of the output space.",
+                    "required": true
+                },
+                "activation": {
+                    "type": "dropdown",
+                    "options": [
+                        "linear",
+                        "deserialize",
+                        "elu",
+                        "exponential",
+                        "gelu",
+                        "hard_sigmoid",
+                        "hard_silu",
+                        "leaky_relu",
+                        "log_softmax",
+                        "mish",
+                        "relu",
+                        "relu6",
+                        "selu",
+                        "serialize",
+                        "softmax",
+                        "softplus",
+                        "softsign",
+                        "swish",
+                        "tanh"
+                    ],
+                    "description": "Activation function to use.",
+                    "default": "linear",
+                    "required": false
+                },
+                "use_bias": {
+                    "type": "bool",
+                    "description": "Whether the layer uses a bias vector.",
+                    "default": true,
+                    "required": false
+                },
+                "lora_rank": {
+                    "type": [
+                        "int",
+                        "null"
+                    ],
+                    "min": null,
+                    "max": null,
+                    "description": "The rank of the Low-Rank Approximation (LoRA) to use.",
+                    "default": "null",
+                    "required": false
+                }
+            },
+            "description": "Just your regular densely-connected NN layer.",
+            "href": "https://www.tensorflow.org/api_docs/python/tf/keras/layers/Dense"
+        },
+        {
+            "Type": "Dot",
+            "params": [
+                "axes",
+                "normalize"
+            ],
+            "param_desc": {
+                "axes": {
+                    "type": "int",
+                    "description": "Integer or tuple of integers, axis or axes along which to take the dot product.",
+                    "required": true
+                },
+                "normalize": {
+                    "type": "bool",
+                    "description": "Whether to L2-normalize samples along the dot product axis before taking the dot product.",
+                    "default": false,
+                    "required": false
+                }
+            },
+            "description": "Layer that computes element-wise dot product of two tensors.",
+            "href": "https://www.tensorflow.org/api_docs/python/tf/keras/layers/Dot"
+        },
+        {
+            "Type": "Dropout",
+            "params": [
+                "rate",
+                "noise_shape",
+                "seed"
+            ],
+            "param_desc": {
+                "rate": {
+                    "type": "float",
+                    "min": 0.0,
+                    "max": 1.0,
+                    "description": "Fraction of the input units to drop.",
+                    "required": true
+                },
+                "noise_shape": {
+                    "type": "int",
+                    "description": "1D tensor of type int representing the shape of the binary dropout mask that will be multiplied with the input. For instance, if your inputs have shape (batch_size, timesteps, features) and you want the dropout mask to be the same for all timesteps, you can use noise_shape=(batch_size, 1, features).",
+                    "default": "null",
+                    "required": false
+                },
+                "seed": {
+                    "type": [
+                        "int",
+                        "null"
+                    ],
+                    "min": null,
+                    "max": null,
+                    "description": "A Python integer to use as random seed.",
+                    "default": "null",
+                    "required": false
+                }
+            },
+            "description": "Applies Dropout to the input.",
+            "href": "https://www.tensorflow.org/api_docs/python/tf/keras/layers/Dropout"
+        },
+        {
+            "Type": "Elu",
+            "params": [
+                "alpha"
+            ],
+            "param_desc": {
+                "alpha": {
+                    "type": "float",
+                    "min": null,
+                    "max": null,
+                    "description": "A scalar, slope of negative section.",
+                    "default": 1.0,
+                    "required": false
+                }
+            },
+            "description": "Exponential Linear Unit.",
+            "href": "https://www.tensorflow.org/api_docs/python/tf/keras/layers/Elu"
+        },
+        {
+            "Type": "Embedding",
+            "params": [
+                "input_dim",
+                "output_dim",
+                "mask_zero",
+                "input_length",
+                "lora_rank"
+            ],
+            "param_desc": {
+                "input_dim": {
+                    "type": "int",
+                    "min": 1,
+                    "max": null,
+                    "description": "Size of the vocabulary, i.e. maximum integer index + 1.",
+                    "required": true
+                },
+                "output_dim": {
+                    "type": "int",
+                    "min": 1,
+                    "max": null,
+                    "description": "Dimension of the dense embedding.",
+                    "required": true
+                },
+                "mask_zero": {
+                    "type": "bool",
+                    "description": "Whether or not the input value 0 is a special \"padding\" value that should be masked out. This is useful when using recurrent layers which may take variable length input. If this is True, then all subsequent layers in the model need to support masking or an exception will be raised. If mask_zero is set to True, as a consequence, index 0 cannot be used in the vocabulary (input_dim should equal size of vocabulary + 1).",
+                    "default": false,
+                    "required": false
+                },
+                "input_length": {
+                    "type": [
+                        "int",
+                        "null"
+                    ],
+                    "min": null,
+                    "max": null,
+                    "description": "Length of input sequences, when it is constant. This argument is required if you are going to connect Flatten then Dense layers upstream (without it, the shape of the dense outputs cannot be computed).",
+                    "default": "null",
+                    "required": false
+                },
+                "lora_rank": {
+                    "type": [
+                        "int",
+                        "null"
+                    ],
+                    "min": null,
+                    "max": null,
+                    "description": "The rank of the Low-Rank Approximation (LoRA) to use.",
+                    "default": "null",
+                    "required": false
+                }
+            },
+            "description": "Turns positive integers (indexes) into dense vectors of fixed size.",
+            "href": "https://www.tensorflow.org/api_docs/python/tf/keras/layers/Embedding"
+        },
+        {
+            "Type": "Flatten",
+            "params": [
+                "data_format"
+            ],
+            "param_desc": {
+                "data_format": {
+                    "type": "dropdown",
+                    "options": [
+                        "channels_last",
+                        "channels_first"
+                    ],
+                    "description": "The ordering of the dimensions in the inputs. channels_last corresponds to inputs with shape (batch, ..., channels) while channels_first corresponds to inputs with shape (batch, channels, ...).",
+                    "default": "channels_last",
+                    "required": false
+                }
+            },
+            "description": "Flattens the input. Does not affect the batch size.",
+            "href": "https://www.tensorflow.org/api_docs/python/tf/keras/layers/Flatten"
+        },
+        {
+            "Type": "GRU",
+            "params": [
+                "units",
+                "activation",
+                "recurrent_activation",
+                "use_bias",
+                "unit_forget_bias",
+                "dropout",
+                "recurrent_dropout",
+                "return_sequences",
+                "return_state",
+                "go_backwards",
+                "stateful",
+                "unroll",
+                "reset_after"
+            ],
+            "param_desc": {
+                "units": {
+                    "type": "int",
+                    "min": 1,
+                    "max": null,
+                    "description": "Positive integer, dimensionality of the output space.",
+                    "required": true
+                },
+                "activation": {
+                    "type": "dropdown",
+                    "options": [
+                        "tanh",
+                        "deserialize",
+                        "elu",
+                        "exponential",
+                        "gelu",
+                        "hard_sigmoid",
+                        "hard_silu",
+                        "leaky_relu",
+                        "linear",
+                        "log_softmax",
+                        "mish",
+                        "relu",
+                        "relu6",
+                        "selu",
+                        "serialize",
+                        "softmax",
+                        "softplus",
+                        "softsign",
+                        "swish"
+                    ],
+                    "description": "Activation function to use.",
+                    "default": "tanh",
+                    "required": false
+                },
+                "recurrent_activation": {
+                    "type": "dropdown",
+                    "options": [
+                        "sigmoid",
+                        "deserialize",
+                        "elu",
+                        "exponential",
+                        "gelu",
+                        "hard_sigmoid",
+                        "hard_silu",
+                        "leaky_relu",
+                        "linear",
+                        "log_softmax",
+                        "mish",
+                        "relu",
+                        "relu6",
+                        "selu",
+                        "serialize",
+                        "softmax",
+                        "softplus",
+                        "softsign",
+                        "swish"
+                    ],
+                    "description": "Activation function to use for the recurrent step.",
+                    "default": "sigmoid",
+                    "required": false
+                },
+                "use_bias": {
+                    "type": "bool",
+                    "description": "Whether the layer uses a bias vector.",
+                    "default": true,
+                    "required": false
+                },
+                "unit_forget_bias": {
+                    "type": "bool",
+                    "description": "If True, add 1 to the bias of the forget gate at initialization. Setting it to true will also force bias_initializer=\"zeros\". This is recommended in Jozefowicz et al. 2015",
+                    "default": true,
+                    "required": false
+                },
+                "dropout": {
+                    "type": "float",
+                    "min": 0.0,
+                    "max": 1.0,
+                    "description": "Float between 0 and 1. Fraction of the units to drop for the linear transformation of the inputs.",
+                    "default": 0.0,
+                    "required": false
+                },
+                "recurrent_dropout": {
+                    "type": "float",
+                    "min": 0.0,
+                    "max": 1.0,
+                    "description": "Float between 0 and 1",
+                    "default": 0.0,
+                    "required": false
+                },
+                "return_sequences": {
+                    "type": "bool",
+                    "description": "Whether to return the last output in the output sequence, or the full sequence.",
+                    "default": false,
+                    "required": false
+                },
+                "return_state": {
+                    "type": "bool",
+                    "description": "Whether to return the last state in addition to the output.",
+                    "default": false,
+                    "required": false
+                },
+                "go_backwards": {
+                    "type": "bool",
+                    "description": "If True, process the input sequence backwards.",
+                    "default": false,
+                    "required": false
+                },
+                "stateful": {
+                    "type": "bool",
+                    "description": "If True, the last state for each sample at index i in a batch will be used as initial state for the sample of index i in the following batch.",
+                    "default": false,
+                    "required": false
+                },
+                "unroll": {
+                    "type": "bool",
+                    "description": "If True, the network will be unrolled, else a symbolic loop will be used. Unrolling can speed-up a RNN, although it tends to be more memory-intensive. Unrolling is only suitable for short sequences.",
+                    "default": false,
+                    "required": false
+                },
+                "reset_after": {
+                    "type": "bool",
+                    "description": "GRU convention (whether to apply reset gate after or before matrix multiplication). False = \"before\", True = \"after\" (default and CuDNN compatible).",
+                    "default": true,
+                    "required": false
+                }
+            },
+            "description": "Gated Recurrent Unit - Cho et al. 2014.",
+            "href": "https://www.tensorflow.org/api_docs/python/tf/keras/layers/GRU"
+        },
+        {
+            "Type": "GaussianDropout",
+            "params": [
+                "rate",
+                "seed"
+            ],
+            "param_desc": {
+                "rate": {
+                    "type": "float",
+                    "min": 0.0,
+                    "max": 1.0,
+                    "description": "Dropout rate, i.e. fraction of the input units to drop.",
+                    "required": true
+                },
+                "seed": {
+                    "type": [
+                        "int",
+                        "null"
+                    ],
+                    "min": null,
+                    "max": null,
+                    "description": "A Python integer to use as random seed.",
+                    "default": "null",
+                    "required": false
+                }
+            },
+            "description": "Apply multiplicative 1-centered Gaussian noise.",
+            "href": "https://www.tensorflow.org/api_docs/python/tf/keras/layers/GaussianDropout"
+        },
+        {
+            "Type": "GaussianNoise",
+            "params": [
+                "stddev",
+                "seed"
+            ],
+            "param_desc": {
+                "stddev": {
+                    "type": "float",
+                    "min": 0.0,
+                    "max": null,
+                    "description": "Standard deviation of the noise.",
+                    "required": true
+                },
+                "seed": {
+                    "type": [
+                        "int",
+                        "null"
+                    ],
+                    "min": null,
+                    "max": null,
+                    "description": "A Python integer to use as random seed.",
+                    "default": "null",
+                    "required": false
+                }
+            },
+            "description": "Apply additive zero-centered Gaussian noise.",
+            "href": "https://www.tensorflow.org/api_docs/python/tf/keras/layers/GaussianNoise"
+        },
+        {
+            "Type": "GlobalAveragePooling1D",
+            "params": [
+                "data_format",
+                "keepdims"
+            ],
+            "param_desc": {
+                "data_format": {
+                    "type": "dropdown",
+                    "options": [
+                        "channels_last",
+                        "channels_first"
+                    ],
+                    "description": "The ordering of the dimensions in the inputs. channels_last corresponds to inputs with shape (batch, steps, features) while channels_first corresponds to inputs with shape (batch, features, steps).",
+                    "default": "channels_last",
+                    "required": false
+                },
+                "keepdims": {
+                    "type": "bool",
+                    "description": "whether to keep the temporal dimension or not. If keepdims is False (default), the rank of the tensor is reduced for spatial dimensions. If keepdims is True, the temporal dimension are retained with length 1.",
+                    "default": false,
+                    "required": false
+                },
+                "description": "Global average pooling operation for temporal data.",
+                "href": "https://www.tensorflow.org/api_docs/python/tf/keras/layers/GlobalAveragePooling1D"
+            }
+        },
+        {
+            "Type": "GlobalAveragePooling2D",
+            "params": [
+                "data_format",
+                "keepdims"
+            ],
+            "param_desc": {
+                "data_format": {
+                    "type": "dropdown",
+                    "options": [
+                        "channels_last",
+                        "channels_first"
+                    ],
+                    "description": "The ordering of the dimensions in the inputs. channels_last corresponds to inputs with shape (batch, height, width, channels) while channels_first corresponds to inputs with shape (batch, channels, height, width).",
+                    "default": "channels_last",
+                    "required": false
+                },
+                "keepdims": {
+                    "type": "bool",
+                    "description": "whether to keep the temporal dimension or not. If keepdims is False (default), the rank of the tensor is reduced for spatial dimensions. If keepdims is True, the temporal dimension are retained with length 1.",
+                    "default": false,
+                    "required": false
+                }
+            },
+            "description": "Global average pooling operation for spatial data.",
+            "href": "https://www.tensorflow.org/api_docs/python/tf/keras/layers/GlobalAveragePooling2D"
+        },
+        {
+            "Type": "GlobalAveragePooling3D",
+            "params": [
+                "data_format",
+                "keepdims"
+            ],
+            "param_desc": {
+                "data_format": {
+                    "type": "dropdown",
+                    "options": [
+                        "channels_last",
+                        "channels_first"
+                    ],
+                    "description": "The ordering of the dimensions in the inputs. channels_last corresponds to inputs with shape (batch, spatial_dim1, spatial_dim2, spatial_dim3, channels) while channels_first corresponds to inputs with shape (batch, channels, spatial_dim1, spatial_dim2, spatial_dim3).",
+                    "default": "channels_last",
+                    "required": false
+                },
+                "keepdims": {
+                    "type": "bool",
+                    "description": "whether to keep the temporal dimension or not. If keepdims is False (default), the rank of the tensor is reduced for spatial dimensions. If keepdims is True, the temporal dimension are retained with length 1.",
+                    "default": false,
+                    "required": false
+                }
+            },
+            "description": "Global average pooling operation for 3D data.",
+            "href": "https://www.tensorflow.org/api_docs/python/tf/keras/layers/GlobalAveragePooling3D"
+        },
+        {
+            "Type": "GlobalMaxPooling1D",
+            "params": [
+                "data_format",
+                "keepdims"
+            ],
+            "param_desc": {
+                "data_format": {
+                    "type": "dropdown",
+                    "options": [
+                        "channels_last",
+                        "channels_first"
+                    ],
+                    "description": "The ordering of the dimensions in the inputs. channels_last corresponds to inputs with shape (batch, steps, features) while channels_first corresponds to inputs with shape (batch, features, steps).",
+                    "default": "channels_last",
+                    "required": false
+                },
+                "keepdims": {
+                    "type": "bool",
+                    "description": "whether to keep the temporal dimension or not. If keepdims is False (default), the rank of the tensor is reduced for spatial dimensions. If keepdims is True, the temporal dimension are retained with length 1.",
+                    "default": false,
+                    "required": false
+                }
+            },
+            "description": "Global max pooling operation for temporal data.",
+            "href": "https://www.tensorflow.org/api_docs/python/tf/keras/layers/GlobalMaxPooling1D"
+        },
+        {
+            "Type": "GlobalMaxPooling2D",
+            "params": [
+                "data_format",
+                "keepdims"
+            ],
+            "param_desc": {
+                "data_format": {
+                    "type": "dropdown",
+                    "options": [
+                        "channels_last",
+                        "channels_first"
+                    ],
+                    "description": "The ordering of the dimensions in the inputs. channels_last corresponds to inputs with shape (batch, height, width, channels) while channels_first corresponds to inputs with shape (batch, channels, height, width).",
+                    "default": "channels_last",
+                    "required": false
+                },
+                "keepdims": {
+                    "type": "bool",
+                    "description": "whether to keep the spatial dimensions or not. If keepdims is False (default), the rank of the tensor is reduced for spatial dimensions. If keepdims is True, the spatial dimensions are retained with length 1.",
+                    "default": false,
+                    "required": false
+                }
+            },
+            "description": "Global max pooling operation for 2D data.",
+            "href": "https://www.tensorflow.org/api_docs/python/tf/keras/layers/GlobalMaxPooling2D"
+        },
+        {
+            "Type": "GlobalMaxPooling3D",
+            "params": [
+                "data_format",
+                "keepdims"
+            ],
+            "param_desc": {
+                "data_format": {
+                    "type": "dropdown",
+                    "options": [
+                        "channels_last",
+                        "channels_first"
+                    ],
+                    "description": "The ordering of the dimensions in the inputs. channels_last corresponds to inputs with shape (batch, spatial_dim1, spatial_dim2, spatial_dim3, channels) while channels_first corresponds to inputs with shape (batch, channels, spatial_dim1, spatial_dim2, spatial_dim3).",
+                    "default": "channels_last",
+                    "required": false
+                },
+                "keepdims": {
+                    "type": "bool",
+                    "description": "whether to keep the spatial dimensions or not. If keepdims is False (default), the rank of the tensor is reduced for spatial dimensions. If keepdims is True, the spatial dimensions are retained with length 1.",
+                    "default": false,
+                    "required": false
+                }
+            },
+            "description": "Global max pooling operation for 3D data.",
+            "href": "https://www.tensorflow.org/api_docs/python/tf/keras/layers/GlobalMaxPooling3D"
+        },
+        {
+            "Type": "GroupNormalization",
+            "params": [
+                "groups",
+                "axis",
+                "epsilon",
+                "center",
+                "scale"
+            ],
+            "param_desc": {
+                "groups": {
+                    "type": "int",
+                    "min": 1,
+                    "max": null,
+                    "description": "The number of groups for group normalization. Should be a divisor of the axis or channels.",
+                    "default": 32,
+                    "required": false
+                },
+                "axis": {
+                    "type": "int",
+                    "description": "The axis that should be normalized (typically the features axis). For instance, after a Conv2D layer with data_format=\"channels_first\", set axis=1 in BatchNormalization.",
+                    "default": -1,
+                    "required": false
+                },
+                "epsilon": {
+                    "type": "float",
+                    "min": 0.0,
+                    "max": null,
+                    "description": "A small float added to variance to avoid dividing by zero.",
+                    "default": 0.001,
+                    "required": false
+                },
+                "center": {
+                    "type": "bool",
+                    "description": "If True, add offset of beta to normalized tensor. If False, beta is ignored.",
+                    "default": true,
+                    "required": false
+                },
+                "scale": {
+                    "type": "bool",
+                    "description": "If True, multiply by gamma. If False, gamma is not used. When the next layer is linear (also e.g. nn.relu), this can be disabled since the scaling will be done by the next layer.",
+                    "default": true,
+                    "required": false
+                }
+            },
+            "description": "Group normalization layer. It divides the channels into groups and computes within each group the mean and variance for normalization. Empirically, its accuracy is more stable than batch norm in a wide range of small batch sizes, if learning rate is adjusted linearly with batch sizes.",
+            "href": "https://www.tensorflow.org/api_docs/python/tf/keras/layers/GroupNormalization"
+        },
+        {
+            "Type": "GroupQueryAttention",
+            "params": [
+                "head_dim",
+                "num_query_heads",
+                "num_key_value_heads",
+                "use_bias",
+                "dropout"
+            ],
+            "param_desc": {
+                "head_dim": {
+                    "type": "int",
+                    "min": 1,
+                    "max": null,
+                    "description": "Dimensionality of the output space for each head.",
+                    "required": true
+                },
+                "num_query_heads": {
+                    "type": "int",
+                    "min": 1,
+                    "max": null,
+                    "description": "Number of query heads.",
+                    "required": true
+                },
+                "num_key_value_heads": {
+                    "type": "int",
+                    "min": 1,
+                    "max": null,
+                    "description": "denotes number of groups, setting num_key_value_heads to 1 is equivalent to multi-query attention, and when num_key_value_heads is equal to num_query_heads it is equivalent to multi-head attention.",
+                    "required": true
+                },
+                "use_bias": {
+                    "type": "bool",
+                    "description": "Whether the layer uses a bias vector.",
+                    "default": true,
+                    "required": false
+                },
+                "dropout": {
+                    "type": "float",
+                    "min": 0.0,
+                    "max": 1.0,
+                    "description": "Float between 0 and 1. Fraction of the units to drop for the linear transformation of the inputs.",
+                    "default": 0.0,
+                    "required": false
+                }
+            },
+            "description": "This is an implementation of grouped-query attention introduced by Ainslie et al., 2023.",
+            "href": "https://www.tensorflow.org/api_docs/python/tf/keras/layers/GroupQueryAttention"
+        },
+        {
+            "Type": "Identity",
+            "params": [],
+            "param_desc": {},
+            "description": "Layer that simply passes its inputs forward without any change.",
+            "href": "https://www.tensorflow.org/api_docs/python/tf/keras/layers/Identity"
+        },
+        {
+            "Type": "InputLayer",
+            "params": [
+                "input_shape",
+                "batch_size",
+                "dtype",
+                "sparse",
+                "ragged"
+            ],
+            "param_desc": {
+                "input_shape": {
+                    "type": [
+                        "list",
+                        "null"
+                    ],
+                    "min_size": 1,
+                    "max_size": null,
+                    "description": "A shape tuple (integers), not including the batch size. For instance, input_shape=(32,) indicates that the expected input will be batches of 32-dimensional vectors.",
+                    "default": "null",
+                    "required": false
+                },
+                "batch_size": {
+                    "type": [
+                        "int",
+                        "null"
+                    ],
+                    "min": null,
+                    "max": null,
+                    "description": "Fixed batch size for layer.",
+                    "default": "null",
+                    "required": false
+                },
+                "dtype": {
+                    "type": [
+                        "string",
+                        "null"
+                    ],
+                    "description": "The data type expected by the input, as a string (float32, float64, int32...).",
+                    "default": "null",
+                    "required": false
+                },
+                "sparse": {
+                    "type": [
+                        "bool",
+                        "null"
+                    ],
+                    "description": "A boolean specifying whether the placeholder to be created is sparse.",
+                    "default": "null",
+                    "required": false
+                },
+                "ragged": {
+                    "type": [
+                        "bool",
+                        "null"
+                    ],
+                    "description": "A boolean specifying whether the placeholder to be created is ragged.",
+                    "default": "null",
+                    "required": false
+                }
+            },
+            "description": "Base class for all layer wrappers.",
+            "href": "https://www.tensorflow.org/api_docs/python/tf/keras/layers/InputLayer"
+        },
+        {
+            "Type": "LSTM",
+            "params": [
+                "units",
+                "activation",
+                "recurrent_activation",
+                "use_bias",
+                "unit_forget_bias",
+                "dropout",
+                "recurrent_dropout",
+                "return_sequences",
+                "return_state",
+                "go_backwards",
+                "stateful",
+                "unroll"
+            ],
+            "param_desc": {
+                "units": {
+                    "type": "int",
+                    "min": 1,
+                    "max": null,
+                    "description": "Positive integer, dimensionality of the output space.",
+                    "required": true
+                },
+                "activation": {
+                    "type": "dropdown",
+                    "options": [
+                        "tanh",
+                        "deserialize",
+                        "elu",
+                        "exponential",
+                        "gelu",
+                        "hard_sigmoid",
+                        "hard_silu",
+                        "leaky_relu",
+                        "linear",
+                        "log_softmax",
+                        "mish",
+                        "relu",
+                        "relu6",
+                        "selu",
+                        "serialize",
+                        "softmax",
+                        "softplus",
+                        "softsign",
+                        "swish"
+                    ],
+                    "description": "Activation function to use.",
+                    "default": "tanh",
+                    "required": false
+                },
+                "recurrent_activation": {
+                    "type": "dropdown",
+                    "options": [
+                        "sigmoid",
+                        "deserialize",
+                        "elu",
+                        "exponential",
+                        "gelu",
+                        "hard_sigmoid",
+                        "hard_silu",
+                        "leaky_relu",
+                        "linear",
+                        "log_softmax",
+                        "mish",
+                        "relu",
+                        "relu6",
+                        "selu",
+                        "serialize",
+                        "softmax",
+                        "softplus",
+                        "softsign",
+                        "swish"
+                    ],
+                    "description": "Activation function to use for the recurrent step.",
+                    "default": "sigmoid",
+                    "required": false
+                },
+                "use_bias": {
+                    "type": "bool",
+                    "description": "Whether the layer uses a bias vector.",
+                    "default": true,
+                    "required": false
+                },
+                "unit_forget_bias": {
+                    "type": "bool",
+                    "description": "If True, add 1 to the bias of the forget gate at initialization. Setting it to true will also force bias_initializer=\"zeros\". This is recommended in Jozefowicz et al. 2015",
+                    "default": true,
+                    "required": false
+                },
+                "dropout": {
+                    "type": "float",
+                    "min": 0.0,
+                    "max": 1.0,
+                    "description": "Float between 0 and 1. Fraction of the units to drop for the linear transformation of the inputs.",
+                    "default": 0.0,
+                    "required": false
+                },
+                "recurrent_dropout": {
+                    "type": "float",
+                    "min": 0.0,
+                    "max": 1.0,
+                    "description": "Float between 0 and 1",
+                    "default": 0.0,
+                    "required": false
+                },
+                "return_sequences": {
+                    "type": "bool",
+                    "description": "Whether to return the last output in the output sequence, or the full sequence.",
+                    "default": false,
+                    "required": false
+                },
+                "return_state": {
+                    "type": "bool",
+                    "description": "Whether to return the last state in addition to the output.",
+                    "default": false,
+                    "required": false
+                },
+                "go_backwards": {
+                    "type": "bool",
+                    "description": "If True, process the input sequence backwards.",
+                    "default": false,
+                    "required": false
+                },
+                "stateful": {
+                    "type": "bool",
+                    "description": "If True, the last state for each sample at index i in a batch will be used as initial state for the sample of index i in the following batch.",
+                    "default": false,
+                    "required": false
+                },
+                "unroll": {
+                    "type": "bool",
+                    "description": "If True, the network will be unrolled, else a symbolic loop will be used. Unrolling can speed-up a RNN, although it tends to be more memory-intensive. Unrolling is only suitable for short sequences.",
+                    "default": false,
+                    "required": false
+                }
+            },
+            "description": "Long Short-Term Memory layer - Hochreiter 1997.",
+            "href": "https://www.tensorflow.org/api_docs/python/tf/keras/layers/LSTM"
+        },
+        {
+            "Type": "LayerNormalization",
+            "params": [
+                "axis",
+                "epsilon",
+                "center",
+                "scale",
+                "rms_scaling"
+            ],
+            "param_desc": {
+                "axis": {
+                    "type": "int",
+                    "description": "Integer or List of integers, the axis or axes that should be normalized.",
+                    "default": -1,
+                    "required": false
+                },
+                "epsilon": {
+                    "type": "float",
+                    "min": 0.0,
+                    "max": null,
+                    "description": "A small float added to variance to avoid dividing by zero.",
+                    "default": 0.001,
+                    "required": false
+                },
+                "center": {
+                    "type": "bool",
+                    "description": "If True, add offset of beta to normalized tensor. If False, beta is ignored.",
+                    "default": true,
+                    "required": false
+                },
+                "scale": {
+                    "type": "bool",
+                    "description": "If True, multiply by gamma. If False, gamma is not used. When the next layer is linear (also e.g. nn.relu), this can be disabled since the scaling will be done by the next layer.",
+                    "default": true,
+                    "required": false
+                },
+                "rms_scaling": {
+                    "type": "bool",
+                    "description": "If True, apply RMS scaling.",
+                    "default": false,
+                    "required": false
+                }
+            },
+            "description": "Normalize the activations of the previous layer for each given example in a batch independently, rather than across a batch like Batch Normalization. i.e. applies a transformation that maintains the mean activation within each example close to 0 and the activation standard deviation close to 1.",
+            "href": "https://www.tensorflow.org/api_docs/python/tf/keras/layers/LayerNormalization"
+        },
+        {
+            "Type": "LeakyReLU",
+            "params": [
+                "negative_slope"
+            ],
+            "param_desc": {
+                "negative_slope": {
+                    "type": "float",
+                    "min": null,
+                    "max": null,
+                    "description": "slope coefficient for the negative part.",
+                    "default": 0.3,
+                    "required": false
+                }
+            },
+            "description": "Leaky version of a Rectified Linear Unit. This layer allows a small gradient when the unit is not active.",
+            "href": "https://www.tensorflow.org/api_docs/python/tf/keras/layers/LeakyReLU"
+        },
+        {
+            "Type": "Masking",
+            "params": [
+                "mask_value"
+            ],
+            "param_desc": {
+                "mask_value": {
+                    "type": "float",
+                    "min": null,
+                    "max": null,
+                    "description": "The value that needs to be masked in the input.",
+                    "default": 0.0,
+                    "required": false
+                }
+            },
+            "description": "Masks a sequence by using a mask value to skip timesteps.",
+            "href": "https://www.tensorflow.org/api_docs/python/tf/keras/layers/Masking"
+        },
+        {
+            "Type": "MaxPooling1D",
+            "params": [
+                "pool_size",
+                "strides",
+                "padding",
+                "data_format"
+            ],
+            "param_desc": {
+                "pool_size": {
+                    "type": "int",
+                    "min": 1,
+                    "max": null,
+                    "description": "Size of the max pooling windows.",
+                    "required": true
+                },
+                "strides": {
+                    "type": [
+                        "int",
+                        "null"
+                    ],
+                    "min": null,
+                    "max": null,
+                    "description": " Specifies how much the pooling window moves for each pooling step. If null, it will default to pool_size.",
+                    "default": "null",
+                    "required": false
+                },
+                "padding": {
+                    "type": "dropdown",
+                    "options": [
+                        "valid",
+                        "same"
+                    ],
+                    "description": "One of \"valid\" or \"same\" (case-insensitive). \"valid\" means no padding. \"same\" results in padding evenly to the left/right or up/down of the input such that output has the same height/width dimension as the input.",
+                    "default": "valid",
+                    "required": false
+                },
+                "data_format": {
+                    "type": "dropdown",
+                    "options": [
+                        "channels_last",
+                        "channels_first"
+                    ],
+                    "description": "The ordering of the dimensions in the inputs. channels_last corresponds to inputs with shape (batch, steps, features) while channels_first corresponds to inputs with shape (batch, features, steps).",
+                    "default": "channels_last",
+                    "required": false
+                }
+            },
+            "description": "Max pooling operation for temporal data.",
+            "href": "https://www.tensorflow.org/api_docs/python/tf/keras/layers/MaxPooling1D"
+        },
+        {
+            "Type": "MaxPooling2D",
+            "params": [
+                "pool_size",
+                "strides",
+                "padding",
+                "data_format"
+            ],
+            "param_desc": {
+                "pool_size": {
+                    "type": "int",
+                    "min": 1,
+                    "max": null,
+                    "description": "Size of the max pooling",
+                    "default": "2,2",
+                    "required": false
+                },
+                "strides": {
+                    "type": [
+                        "int",
+                        "null"
+                    ],
+                    "min": null,
+                    "max": null,
+                    "description": "Specifies how much the pooling window moves for each pooling step. If null, it will default to pool_size.",
+                    "default": "null",
+                    "required": false
+                },
+                "padding": {
+                    "type": "dropdown",
+                    "options": [
+                        "valid",
+                        "same"
+                    ],
+                    "description": "One of \"valid\" or \"same\" (case-insensitive). \"valid\" means no padding. \"same\" results in padding evenly to the left/right or up/down of the input such that output has the same height/width dimension as the input.",
+                    "default": "valid",
+                    "required": false
+                },
+                "data_format": {
+                    "type": "dropdown",
+                    "options": [
+                        "channels_last",
+                        "channels_first"
+                    ],
+                    "description": "The ordering of the dimensions in the inputs. channels_last corresponds to inputs with shape (batch, height, width, channels) while channels_first corresponds to inputs with shape (batch, channels, height, width).",
+                    "default": "channels_last",
+                    "required": false
+                }
+            },
+            "description": "Max pooling operation for 2D spatial data.",
+            "href": "https://www.tensorflow.org/api_docs/python/tf/keras/layers/MaxPooling2D"
+        },
+        {
+            "Type": "MaxPooling3D",
+            "params": [
+                "pool_size",
+                "strides",
+                "padding",
+                "data_format"
+            ],
+            "param_desc": {
+                "pool_size": {
+                    "type": "int",
+                    "min": 1,
+                    "max": null,
+                    "description": "Size of the max pooling",
+                    "default": "2,2,2",
+                    "required": false
+                },
+                "strides": {
+                    "type": [
+                        "int",
+                        "null"
+                    ],
+                    "min": null,
+                    "max": null,
+                    "description": "Specifies how much the pooling window moves for each pooling step. If null, it will default to pool_size.",
+                    "default": "null",
+                    "required": false
+                },
+                "padding": {
+                    "type": "dropdown",
+                    "options": [
+                        "valid",
+                        "same"
+                    ],
+                    "description": "One of \"valid\" or \"same\" (case-insensitive). \"valid\" means no padding. \"same\" results in padding evenly to the left/right or up/down of the input such that output has the same height/width dimension as the input.",
+                    "default": "valid",
+                    "required": false
+                },
+                "data_format": {
+                    "type": "dropdown",
+                    "options": [
+                        "channels_last",
+                        "channels_first"
+                    ],
+                    "description": "The ordering of the dimensions in the inputs. channels_last corresponds to inputs with shape (batch, spatial_dim1, spatial_dim2, spatial_dim3, channels) while channels_first corresponds to inputs with shape (batch, channels, spatial_dim1, spatial_dim2, spatial_dim3).",
+                    "default": "channels_last",
+                    "required": false
+                }
+            },
+            "description": "Max pooling operation for 3D data.",
+            "href": "https://www.tensorflow.org/api_docs/python/tf/keras/layers/MaxPooling3D"
+        },
+        {
+            "Type": "Maximum",
+            "params": [],
+            "param_desc": {},
+            "description": "Element-wise maximum of inputs.",
+            "href": "https://www.tensorflow.org/api_docs/python/tf/keras/layers/Maximum"
+        },
+        {
+            "Type": "Minimum",
+            "params": [],
+            "param_desc": {},
+            "description": "Element-wise minimum of inputs.",
+            "href": "https://www.tensorflow.org/api_docs/python/tf/keras/layers/Minimum"
+        },
+        {
+            "Type": "MultiHeadAttention",
+            "params": [
+                "num_heads",
+                "key_dim",
+                "value_dim",
+                "dropout",
+                "use_bias",
+                "output_shape",
+                "attention_axes"
+            ],
+            "param_desc": {
+                "num_heads": {
+                    "type": "int",
+                    "min": 1,
+                    "max": null,
+                    "description": "Number of attention heads.",
+                    "required": true
+                },
+                "key_dim": {
+                    "type": "int",
+                    "min": 1,
+                    "max": null,
+                    "description": "Dimension of the key space.",
+                    "required": true
+                },
+                "value_dim": {
+                    "type": [
+                        "int",
+                        "null"
+                    ],
+                    "min": null,
+                    "max": null,
+                    "description": "Dimension of the value space. If not set, the value_dim is set to key_dim.",
+                    "default": "null",
+                    "required": false
+                },
+                "dropout": {
+                    "type": "float",
+                    "min": 0.0,
+                    "max": 1.0,
+                    "description": "Fraction of the units to drop.",
+                    "default": 0.0,
+                    "required": false
+                },
+                "use_bias": {
+                    "type": "bool",
+                    "description": "Whether to use a bias term.",
+                    "default": true,
+                    "required": false
+                },
+                "output_shape": {
+                    "type": [
+                        "int",
+                        "null"
+                    ],
+                    "min": null,
+                    "max": null,
+                    "description": "The expected shape of an output tensor, besides the batch size. If not specified, projects back to the key_dim.",
+                    "default": "null",
+                    "required": false
+                },
+                "attention_axes": {
+                    "type": [
+                        "int",
+                        "null"
+                    ],
+                    "min": null,
+                    "max": null,
+                    "description": "Axes over which the attention is applied. The default is -1 for the last axis.",
+                    "default": "null",
+                    "required": false
+                }
+            },
+            "description": "Multi-head attention layer.",
+            "href": "https://www.tensorflow.org/api_docs/python/tf/keras/layers/MultiHeadAttention"
+        },
+        {
+            "Type": "Multiply",
+            "params": [],
+            "param_desc": {},
+            "description": "Element-wise multiplication.",
+            "href": "https://www.tensorflow.org/api_docs/python/tf/keras/layers/Multiply"
+        },
+        {
+            "Type": "Normalization",
+            "params": [
+                "axis",
+                "mean",
+                "variance",
+                "invert"
+            ],
+            "param_desc": {
+                "axis": {
+                    "type": "int",
+                    "description": "Integer or List of integers, the axis or axes that should be normalized.",
+                    "default": -1,
+                    "required": false
+                },
+                "mean": {
+                    "type": [
+                        "float",
+                        "null"
+                    ],
+                    "min": null,
+                    "max": null,
+                    "description": "The mean to be subtracted.",
+                    "default": "null",
+                    "required": false
+                },
+                "variance": {
+                    "type": [
+                        "float",
+                        "null"
+                    ],
+                    "min": null,
+                    "max": null,
+                    "description": "The variance to be divided by.",
+                    "default": "null",
+                    "required": false
+                },
+                "invert": {
+                    "type": "bool",
+                    "description": "If True, the normalization is inverted.",
+                    "default": false,
+                    "required": false
+                }
+            },
+            "description": "Normalize the activations of the previous layer for each given example in a batch independently, rather than across a batch like Batch Normalization. i.e. applies a transformation that maintains the mean activation within each example close to 0 and the activation standard deviation close to 1.",
+            "href": "https://www.tensorflow.org/api_docs/python/tf/keras/layers/Normalization"
+        },
+        {
+            "Type": "PReLU",
+            "params": [
+                "shared_axes"
+            ],
+            "param_desc": {
+                "shared_axes": {
+                    "type": [
+                        "int",
+                        "null"
+                    ],
+                    "min": null,
+                    "max": null,
+                    "description": "The axes along which to share learnable parameters for the activation function. For example, if the incoming feature maps are from a 2D convolution with output shape (batch, height, width, channels), and you wish to share parameters across space so that each filter only has one set of parameters, set shared_axes=[1, 2].",
+                    "default": "null",
+                    "required": false
+                }
+            },
+            "description": "Parametric Rectified Linear Unit.",
+            "href": "https://www.tensorflow.org/api_docs/python/tf/keras/layers/PReLU"
+        },
+        {
+            "Type": "Permute",
+            "params": [
+                "dims"
+            ],
+            "param_desc": {
+                "dims": {
+                    "type": "list",
+                    "min_size": 1,
+                    "max_size": null,
+                    "description": " Permutation pattern does not include the batch dimension. Indexing starts at 1. For instance, 2, 1 permutes the first and second dimensions of the input.",
+                    "required": true
+                }
+            },
+            "description": "Permutes the dimensions of the input according to a given pattern.",
+            "href": "https://www.tensorflow.org/api_docs/python/tf/keras/layers/Permute"
+        },
+        {
+            "Type": "ReLU",
+            "params": [
+                "max_value",
+                "negative_slope",
+                "threshold"
+            ],
+            "param_desc": {
+                "max_value": {
+                    "type": [
+                        "float",
+                        "null"
+                    ],
+                    "min": 0.0,
+                    "max": null,
+                    "description": "Maximum activation value. If null, it will default to infinity.",
+                    "default": "null",
+                    "required": false
+                },
+                "negative_slope": {
+                    "type": "float",
+                    "min": 0.0,
+                    "max": null,
+                    "description": "slope coefficient for the negative part.",
+                    "default": 0.0,
+                    "required": false
+                },
+                "threshold": {
+                    "type": "float",
+                    "min": 0.0,
+                    "max": null,
+                    "description": "Threshold value for thresholded activation.",
+                    "default": 0.0,
+                    "required": false
+                }
+            },
+            "description": "Rectified Linear Unit activation function.",
+            "href": "https://www.tensorflow.org/api_docs/python/tf/keras/layers/ReLU"
+        },
+        {
+            "Type": "RepeatVector",
+            "params": [
+                "n"
+            ],
+            "param_desc": {
+                "n": {
+                    "type": "int",
+                    "min": 1,
+                    "max": null,
+                    "description": "Repetition factor.",
+                    "required": true
+                }
+            },
+            "description": "Repeats the input n times.",
+            "href": "https://www.tensorflow.org/api_docs/python/tf/keras/layers/RepeatVector"
+        },
+        {
+            "Type": "Rescaling",
+            "params": [
+                "scale",
+                "offset"
+            ],
+            "param_desc": {
+                "scale": {
+                    "type": "float",
+                    "min": 0.0,
+                    "max": null,
+                    "description": "The factor by which to scale the inputs.",
+                    "required": true
+                },
+                "offset": {
+                    "type": "float",
+                    "min": null,
+                    "max": null,
+                    "description": "The value by which to offset the inputs after scaling.",
+                    "default": "0.0",
+                    "required": false
+                }
+            },
+            "description": "This layer rescales every value of an input (often an image) by multiplying by scale and adding offset. For instance:\nTo rescale an input in the [0, 255] range to be in the [0, 1] range, you would pass scale=1./255.\n\nTo rescale an input in the [0, 255] range to be in the [-1, 1] range, you would pass scale=1./127.5, offset=-1.",
+            "href": "https://www.tensorflow.org/api_docs/python/tf/keras/layers/Rescaling"
+        },
+        {
+            "Type": "Reshape",
+            "params": [
+                "target_shape"
+            ],
+            "param_desc": {
+                "target_shape": {
+                    "type": "list",
+                    "min_size": 1,
+                    "max_size": null,
+                    "description": "The target shape. Does not include the samples dimension (batch size).",
+                    "required": true
+                }
+            },
+            "description": "Layer that reshapes inputs into the given shape.",
+            "href": "https://www.tensorflow.org/api_docs/python/tf/keras/layers/Reshape"
+        },
+        {
+            "Type": "SimpleRNN",
+            "params": [
+                "units",
+                "activation",
+                "use_bias",
+                "dropout",
+                "recurrent_dropout",
+                "return_sequences",
+                "return_state",
+                "go_backwards",
+                "stateful",
+                "unroll",
+                "seed"
+            ],
+            "param_desc": {
+                "units": {
+                    "type": "int",
+                    "min": 1,
+                    "max": null,
+                    "description": "Positive integer, dimensionality of the output space.",
+                    "required": true
+                },
+                "activation": {
+                    "type": "dropdown",
+                    "options": [
+                        "tanh",
+                        "deserialize",
+                        "elu",
+                        "exponential",
+                        "gelu",
+                        "hard_sigmoid",
+                        "hard_silu",
+                        "leaky_relu",
+                        "linear",
+                        "log_softmax",
+                        "mish",
+                        "relu",
+                        "relu6",
+                        "selu",
+                        "serialize",
+                        "softmax",
+                        "softplus",
+                        "softsign",
+                        "swish"
+                    ],
+                    "description": "Activation function to use.",
+                    "default": "tanh",
+                    "required": false
+                },
+                "use_bias": {
+                    "type": "bool",
+                    "description": "Whether the layer uses a bias vector.",
+                    "default": true,
+                    "required": false
+                },
+                "dropout": {
+                    "type": "float",
+                    "min": 0.0,
+                    "max": 1.0,
+                    "description": "Float between 0 and 1. Fraction of the units to drop for the linear transformation of the inputs.",
+                    "default": 0.0,
+                    "required": false
+                },
+                "recurrent_dropout": {
+                    "type": "float",
+                    "min": 0.0,
+                    "max": 1.0,
+                    "description": "Float between 0 and 1",
+                    "default": 0.0,
+                    "required": false
+                },
+                "return_sequences": {
+                    "type": "bool",
+                    "description": "Whether to return the last output in the output sequence, or the full sequence.",
+                    "default": false,
+                    "required": false
+                },
+                "return_state": {
+                    "type": "bool",
+                    "description": "Whether to return the last state in addition to the output.",
+                    "default": false,
+                    "required": false
+                },
+                "go_backwards": {
+                    "type": "bool",
+                    "description": "If True, process the input sequence backwards.",
+                    "default": false,
+                    "required": false
+                },
+                "stateful": {
+                    "type": "bool",
+                    "description": "If True, the last state for each sample at index i in a batch will be used as initial state for the sample of index i in the following batch.",
+                    "default": false,
+                    "required": false
+                },
+                "unroll": {
+                    "type": "bool",
+                    "description": "If True, the network will be unrolled, else a symbolic loop will be used. Unrolling can speed-up a RNN, although it tends to be more memory-intensive. Unrolling is only suitable for short sequences.",
+                    "default": false,
+                    "required": false
+                },
+                "seed": {
+                    "type": [
+                        "int",
+                        "null"
+                    ],
+                    "min": null,
+                    "max": null,
+                    "description": "A Python integer to use as random seed.",
+                    "default": "null",
+                    "required": false
+                }
+            }
+        },
+        {
+            "Type": "Softmax",
+            "params": [
+                "axis"
+            ],
+            "param_desc": {
+                "axis": {
+                    "type": "list",
+                    "min_size": 1,
+                    "max_size": null,
+                    "description": "Integer, or list of Integers, axis along which the softmax normalization is applied. The default is -1, which indicates the last axis.",
+                    "default": -1,
+                    "required": false
+                }
+            },
+            "description": "Softmax converts a vector of values to a probability distribution. The elements of the output vector are in range (0, 1) and sum to 1.",
+            "href": "https://www.tensorflow.org/api_docs/python/tf/keras/layers/Softmax"
+        },
+        {
+            "Type": "Subtract",
+            "params": [],
+            "param_desc": {},
+            "description": "Element-wise subtraction.",
+            "href": "https://www.tensorflow.org/api_docs/python/tf/keras/layers/Subtract"
+        },
+        {
+            "Type": "TextVectorization",
+            "params": [
+                "max_tokens",
+                "standardize",
+                "split",
+                "ngrams",
+                "output_mode",
+                "output_sequence_length",
+                "pad_to_max_tokens",
+                "vocabulary",
+                "sparse",
+                "ragged",
+                "encoding"
+            ],
+            "param_desc": {
+                "max_tokens": {
+                    "type": [
+                        "int",
+                        "null"
+                    ],
+                    "min": null,
+                    "max": null,
+                    "description": "Maximum size of the vocabulary for this layer. This should only be specified when adapting a vocabulary or when setting pad_to_max_tokens=True. Note that this vocabulary contains 1 OOV token, so the effective number of tokens is (max_tokens - 1 - (1 if output_mode == \"int\" else 0)).",
+                    "default": "null",
+                    "required": false
+                },
+                "standardize": {
+                    "type": "dropdown",
+                    "options": [
+                        "none",
+                        "lower_and_strip_punctuation",
+                        "lower",
+                        "strip_punctuation"
+                    ],
+                    "description": "Optional specification for standardization to apply to the input text. Values can be:\nNone: No standardization.\n\"lower_and_strip_punctuation\": Text will be lowercased and all punctuation removed.\n\"lower\": Text will be lowercased.\n\"strip_punctuation\": All punctuation will be removed.",
+                    "default": "none",
+                    "required": false
+                },
+                "split": {
+                    "type": "dropdown",
+                    "options": [
+                        "whitespace",
+                        "characters",
+                        "none"
+                    ],
+                    "description": "Optional specification for splitting the input text. Values can be:\nNone: No splitting.\n\"whitespace\": Split on whitespace.\n\"character\": Split on each unicode character.",
+                    "default": "whitespace",
+                    "required": false
+                },
+                "ngrams": {
+                    "type": [
+                        "list",
+                        "null"
+                    ],
+                    "min_size": null,
+                    "max_size": null,
+                    "description": "Optional specification for ngrams to create from the possibly-split input text. Values can be null, an integer or tuple of integers; passing an integer will create ngrams up to that integer, and passing a tuple of integers will create ngrams for the specified values in the tuple. Passing nul means that no ngrams will be created.",
+                    "default": "null",
+                    "required": false
+                },
+                "output_mode": {
+                    "type": "dropdown",
+                    "options": [
+                        "int",
+                        "multi_hot",
+                        "count",
+                        "tf_idf"
+                    ],
+                    "description": "Optional specification for the output of the layer. Values can be \"int\", \"multi_hot\", \"count\" or \"tf_idf\", configuring the layer as follows:\n\"int\": Outputs integer indices, one integer index per split string token. When output_mode == \"int\", 0 is reserved for masked locations; this reduces the vocab size to max_tokens - 2 instead of max_tokens - 1.\n\"multi_hot\": Outputs a single int array per batch, of either vocab_size or max_tokens size, containing 1s in all elements where the token mapped to that index exists at least once in the batch item.\n\"count\": Like \"multi_hot\", but the int array contains a count of the number of times the token at that index appeared in the batch item.\n\"tf_idf\": Like \"multi_hot\", but the TF-IDF algorithm is applied to find the value in each token slot. For \"int\" output, any shape of input and output is supported. For all other output modes, currently only rank 1 inputs (and rank 2 outputs after splitting) are supported.",
+                    "default": "int",
+                    "required": false
+                },
+                "output_sequence_length": {
+                    "type": [
+                        "int",
+                        "null"
+                    ],
+                    "min": null,
+                    "max": null,
+                    "description": "Only valid in INT mode. If set, the output will have its time dimension padded or truncated to exactly output_sequence_length values, resulting in a tensor of shape (batch_size, output_sequence_length) regardless of how many tokens resulted from the splitting step. If ragged is True then output_sequence_length may still truncate the output.",
+                    "default": "null",
+                    "required": false
+                },
+                "pad_to_max_tokens": {
+                    "type": "bool",
+                    "description": "Only valid in \"multi_hot\", \"count\", and \"tf_idf\" modes. If True, the output will have its feature axis padded to max_tokens even if the number of unique tokens in the vocabulary is less than max_tokens, resulting in a tensor of shape (batch_size, max_tokens) regardless of vocabulary size. ",
+                    "default": false,
+                    "required": false
+                },
+                "vocabulary": {
+                    "type": "file_path",
+                    "description": "a file path, the file should contain one line per term in the vocabulary.",
+                    "default": "null",
+                    "required": false
+                },
+                "ragged": {
+                    "type": "bool",
+                    "description": "If True, the output will be a RaggedTensor. If False, the output will be a dense Tensor.",
+                    "default": false,
+                    "required": false
+                },
+                "sparse": {
+                    "type": "bool",
+                    "description": "If True, the output will be a SparseTensor. If False, the output will be a dense Tensor.",
+                    "default": false,
+                    "required": false
+                },
+                "encoding": {
+                    "type": "string",
+                    "description": "The text encoding to use. Can be one of \"utf-8\", \"utf-16\", \"latin1\", etc.",
+                    "default": "utf-8",
+                    "required": false
+                }
+            },
+            "description": "Layer to vectorize text into integer token indices.",
+            "href": "https://www.tensorflow.org/api_docs/python/tf/keras/layers/TextVectorization"
+        },
+        {
+            "Type": "UnitNormalization",
+            "params": [
+                "axis"
+            ],
+            "param_desc": {
+                "axis": {
+                    "type": "int",
+                    "description": "Integer or List of integers, the axis or axes that should be normalized.",
+                    "default": -1,
+                    "required": false
+                }
+            },
+            "description": "Normalize a batch of inputs so that each input in the batch has a L2 norm equal to 1 (across the axes specified in axis)."
+        },
+        {
+            "Type": "UpSampling1D",
+            "params": [
+                "size"
+            ],
+            "param_desc": {
+                "size": {
+                    "type": "int",
+                    "min": 1,
+                    "max": null,
+                    "description": "The upsampling factor.",
+                    "default": 2,
+                    "required": false
+                }
+            },
+            "description": "Upsampling layer for 1D inputs.",
+            "href": "https://www.tensorflow.org/api_docs/python/tf/keras/layers/UpSampling1D"
+        },
+        {
+            "Type": "UpSampling2D",
+            "params": [
+                "size",
+                "interpolation",
+                "data_format"
+            ],
+            "param_desc": {
+                "size": {
+                    "type": "int",
+                    "min": 1,
+                    "max": null,
+                    "description": "The upsampling factors for rows and columns.",
+                    "default": "2,2",
+                    "required": false
+                },
+                "interpolation": {
+                    "type": "dropdown",
+                    "options": [
+                        "nearest",
+                        "bilinear"
+                    ],
+                    "description": "The interpolation method.",
+                    "default": "nearest",
+                    "required": false
+                },
+                "data_format": {
+                    "type": "dropdown",
+                    "options": [
+                        "channels_last",
+                        "channels_first"
+                    ],
+                    "description": "The ordering of the dimensions in the inputs. channels_last corresponds to inputs with shape (batch, height, width, channels) while channels_first corresponds to inputs with shape (batch, channels, height, width).",
+                    "default": "channels_last",
+                    "required": false
+                }
+            },
+            "description": "Upsampling layer for 2D inputs.",
+            "href": "https://www.tensorflow.org/api_docs/python/tf/keras/layers/UpSampling2D"
+        },
+        {
+            "Type": "UpSampling3D",
+            "params": [
+                "size",
+                "data_format"
+            ],
+            "param_desc": {
+                "size": {
+                    "type": "list",
+                    "min_size": 1,
+                    "max_size": 3,
+                    "description": "The upsampling factors for spatial dimensions. If a single integer is provided, it is replicated to all spatial dimensions.",
+                    "default": "2,2,2",
+                    "required": false
+                },
+                "data_format": {
+                    "type": "dropdown",
+                    "options": [
+                        "channels_last",
+                        "channels_first"
+                    ],
+                    "description": "The ordering of the dimensions in the inputs. channels_last corresponds to inputs with shape (batch, spatial_dim1, spatial_dim2, spatial_dim3, channels) while channels_first corresponds to inputs with shape (batch, channels, spatial_dim1, spatial_dim2, spatial_dim3).",
+                    "default": "channels_last",
+                    "required": false
+                }
+            },
+            "description": "Upsampling layer for 3D inputs.",
+            "href": "https://www.tensorflow.org/api_docs/python/tf/keras/layers/UpSampling3D"
+        },
+        {
+            "Type": "ZeroPadding1D",
+            "params": [
+                "padding"
+            ],
+            "param_desc": {
+                "padding": {
+                    "type": "int",
+                    "min": 1,
+                    "max": null,
+                    "description": "The size of the padding.",
+                    "default": "1",
+                    "required": false
+                }
+            },
+            "description": "Zero-padding layer for 1D input (e.g. temporal sequence).",
+            "href": "https://www.tensorflow.org/api_docs/python/tf/keras/layers/ZeroPadding1D"
+        },
+        {
+            "Type": "ZeroPadding2D",
+            "params": [
+                "padding",
+                "data_format"
+            ],
+            "param_desc": {
+                "padding": {
+                    "type": "list",
+                    "min_size": 1,
+                    "max_size": 2,
+                    "description": "The padding size.",
+                    "default": "1,1",
+                    "required": false
+                },
+                "data_format": {
+                    "type": "dropdown",
+                    "options": [
+                        "channels_last",
+                        "channels_first"
+                    ],
+                    "description": "The ordering of the dimensions in the inputs. channels_last corresponds to inputs with shape (batch, height, width, channels) while channels_first corresponds to inputs with shape (batch, channels, height, width).",
+                    "default": "channels_last",
+                    "required": false
+                }
+            },
+            "description": "Zero-padding layer for 2D input (e.g. picture).",
+            "href": "https://www.tensorflow.org/api_docs/python/tf/keras/layers/ZeroPadding2D"
+        },
+        {
+            "Type": "ZeroPadding3D",
+            "params": [
+                "padding",
+                "data_format"
+            ],
+            "param_desc": {
+                "padding": {
+                    "type": "list",
+                    "min_size": 1,
+                    "max_size": 3,
+                    "description": "The padding size.",
+                    "default": "1,1,1",
+                    "required": false
+                },
+                "data_format": {
+                    "type": "dropdown",
+                    "options": [
+                        "channels_last",
+                        "channels_first"
+                    ],
+                    "description": "The ordering of the dimensions in the inputs. channels_last corresponds to inputs with shape (batch, spatial_dim1, spatial_dim2, spatial_dim3, channels) while channels_first corresponds to inputs with shape (batch, channels, spatial_dim1, spatial_dim2, spatial_dim3).",
+                    "default": "channels_last",
+                    "required": false
+                }
+            },
+            "description": "Zero-padding layer for 3D data (spatial or spatio-temporal).",
+            "href": "https://www.tensorflow.org/api_docs/python/tf/keras/layers/ZeroPadding3D"
+        }
+    ],
+    "version": 2.16
+}

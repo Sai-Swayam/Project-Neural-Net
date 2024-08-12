@@ -1,6 +1,8 @@
-import React, { useCallback, useEffect, useState } from "react";
+import React, { useCallback, useRef, useState } from "react";
 import { Handle, Position } from "@xyflow/react";
 import type { Node, NodeProps } from "@xyflow/react";
+import Params from "../Components/Params";
+import { useDisableNumberInputScroll } from "../Hooks/useDisableNumberInputScroll";
 
 interface Layers {}
 
@@ -12,98 +14,34 @@ type InputNode = Node<
 
 //function begins
 const InputNode = ({ data }: NodeProps<InputNode>) => {
+  useDisableNumberInputScroll();
+
   //states
   const [params, setParams] = useState(data.layers[0]);
-  const [options, setOptions] = useState();
+  const [options, setOptions] = useState([""]);
 
-  //query logic
-  // ------------------------------
-  // const filteredTypes =
-  //   query === ""
-  //     ? data.layers
-  //     : data.layers.filter((layer) => {
-  //         return layer.Type.toLowerCase().includes(query.toLowerCase());
-  //       });
+  const paramRef = useRef(null);
+  const optionsRef = useRef(null);
 
   const onChange = useCallback((event: React.ChangeEvent<HTMLInputElement>) => {
     console.log(event.target.value);
   }, []);
 
-  const onNumberChange = useCallback(
-    (event: React.ChangeEvent<HTMLInputElement>) => {
-      console.log(event.target.value);
-    }, []);
-
-  function getOptions(arg, entry) {
-    if (arg === "**kwargs" || arg === "Name") return null;
-
-    let argele = entry.param_desc[arg];
-    let returndiv;
-    if (argele.type === "dropdown") {
-      let options = entry.param_desc[arg].options.map((opt) => (
-        <option key={opt} value={opt} className="text-xs">
-          {opt}
-        </option>
-      ));
-      returndiv = <select>{options}</select>;
-    } else if (argele.type === "float") {
-      returndiv = (
-        <input
-          type="number"
-          min={argele.min}
-          max={argele.max}
-          step={0.01}
-          onChange={onNumberChange}
-          className="text-xs w-16 rounded-sm p-0.5"
-        ></input>
-      );
-    } else if (argele.type === "int")
-      returndiv = (
-        <input
-          type="number"
-          min={argele.min}
-          max={argele.max}
-          step={1}
-          pattern="\d+"
-          onChange={onNumberChange}
-          className="text-xs"
-        ></input>
-      );
-    else return null;
-
-    return (
-      <div key={crypto.randomUUID()} className="text-xs">
-        <label htmlFor={arg} className="text-[8px]">
-          {arg}
-          <br />
-        </label>
-        {returndiv}
-      </div>
-    );
-  }
-
   const onLayerTypeChange = useCallback(
     (e: React.ChangeEvent<HTMLSelectElement>) => {
       console.log(e.target.value);
       const entry = data.layers.find((ele) => ele.Type === e.target.value);
+      paramRef.current = data.layers.find((ele) => ele.Type === e.target.value);
       console.log(entry);
-      setParams(entry);
-      let args = Object.keys(entry.params.args);
-      let kwargs = Object.keys(entry.params.kwargs);
-      let options = [...args, ...kwargs];
-      let optionDivs = options.map((arg) => getOptions(arg, entry));
-      optionDivs = optionDivs.filter((n) => n);
-      setOptions(optionDivs);
+      setParams(paramRef.current);
+      optionsRef.current = entry.params;
+      // let optionDivs = options.map((arg) => getOptions(arg, entry));
+      // optionDivs = optionDivs.filter((n) => n);
+      // setOptions(optionDivs);
+      setOptions(optionsRef.current);
     },
     []
   );
-
-  //useEffect
-  //-------------------------------
-  // useEffect(() => {
-  //   console.log(params); // Logs the updated value
-
-  // }, [params]);
 
   //layer items
   const layerItems = data.layers.map((layer) => (
@@ -121,7 +59,7 @@ const InputNode = ({ data }: NodeProps<InputNode>) => {
 
   return (
     <>
-      <div className="bg-slate-200 rounded-md shadow-md px-4 py-3 gap-1 flex flex-col">
+      <div className="bg-slate-200 rounded-md shadow-md px-4 py-3 gap-1 flex flex-col max-w-60">
         <Handle type="source" position={Position.Bottom} id="a" />
         <h1 className="text-l">Input Node</h1>
         <label htmlFor="types" className="text-[8px]">
@@ -144,7 +82,10 @@ const InputNode = ({ data }: NodeProps<InputNode>) => {
           {layerItems}
         </select>
         {/* Set Arguments for Layers */}
-        <div className="flex flex-wrap justify-between">{options}</div>
+        <div className="flex flex-wrap justify-between">
+          {options != null &&
+            options.map((arg) => <Params key={arg} arg={arg} entry={params} />)}
+        </div>
       </div>
     </>
   );

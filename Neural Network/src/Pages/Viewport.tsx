@@ -1,6 +1,8 @@
 import React, { useCallback, useEffect, useState } from "react";
 import InputNode from "../NodeTypes/InputNode";
-import layers from "../assets/layers.json";
+import layersjson from "../assets/layersCopy.json";
+
+let layers = layersjson.layers;
 
 interface Layer {
   Type: string;

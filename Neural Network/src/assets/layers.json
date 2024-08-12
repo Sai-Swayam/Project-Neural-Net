@@ -1958,7 +1958,7 @@
     "param_desc": {
       "data_format": {
         "type": "dropdown",
-        "options": ["channels_last", "channels_first"],
+        "options": ["channels_last", "channels_first"], 
         "description": "The ordering of the dimensions in the inputs. channels_last corresponds to inputs with shape (batch, steps, features) while channels_first corresponds to inputs with shape (batch, features, steps)."
       },
       "keepdims": {
