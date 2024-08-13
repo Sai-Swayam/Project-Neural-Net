@@ -3,15 +3,17 @@ import { useDisableNumberInputScroll } from "../../Hooks/useDisableNumberInputSc
 
 const Float = ({ argele }) => {
   useDisableNumberInputScroll();
-  const [float, setFloat] = useState(0.0);
+  const [float, setFloat] = useState('');
 
   const onFloatChange = useCallback(
     (event: React.ChangeEvent<HTMLInputElement>) => {
       const newValue = Number(event.target.value);
       setFloat(newValue);
       console.log("Float value:", newValue);
+
+      const flow = rfInstance.toObject();
     },
-    []
+    [float]
   );
 
   return (
@@ -20,8 +22,9 @@ const Float = ({ argele }) => {
         type="number"
         min={argele.min}
         max={argele.max}
+        value={argele.required?float:argele.default}
         step={0.01}
-        value={argele.required?'':argele.default}
+        // pattern="\d+"
         onChange={onFloatChange}
         className="text-xs w-16 rounded-sm p-0.5 nodrag outline-none"
         required={argele.required}

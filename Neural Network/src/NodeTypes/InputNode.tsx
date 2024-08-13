@@ -1,8 +1,9 @@
-import React, { useCallback, useRef, useState } from "react";
+import React, { useCallback, useRef, useState, useEffect } from "react";
 import { Handle, Position } from "@xyflow/react";
 import type { Node, NodeProps } from "@xyflow/react";
 import Params from "../Components/Params";
-import { useDisableNumberInputScroll } from "../Hooks/useDisableNumberInputScroll";
+import useStore from "../store";
+// import { useDisableNumberInputScroll } from "../Hooks/useDisableNumberInputScroll";
 
 interface Layers {}
 
@@ -14,14 +15,35 @@ type InputNode = Node<
 
 //function begins
 const InputNode = ({ data }: NodeProps<InputNode>) => {
-  useDisableNumberInputScroll();
+  // useDisableNumberInputScroll();
 
   //states
-  const [params, setParams] = useState(data.layers[0]);
-  const [options, setOptions] = useState([""]);
+  // const [params, setParams] = useState(data.layers[0]);
+  // const [options, setOptions] = useState([""]);
+
+  const params = useStore((state) => state.inputParams);
+  const options = useStore((state) => state.inputOptions);
+
+  const updateParams = useStore((state) => state.updateInputParams);
+  const updateOptions = useStore((state) => state.updateInputOptions);
 
   const paramRef = useRef(null);
   const optionsRef = useRef(null);
+
+  //useEffect
+  useEffect(() => {
+    //----------------------------
+    // const entry = data.layers[0];
+    // // paramRef.current = data.layers[0];
+    // optionsRef.current = entry.params;
+    // setOptions(optionsRef.current);
+    // console.log("UseEffect render")
+    //----------------------------
+
+    const entry = data.layers[0];
+    updateParams(entry);
+    updateOptions(entry.params);
+  }, []);
 
   const onChange = useCallback((event: React.ChangeEvent<HTMLInputElement>) => {
     console.log(event.target.value);
@@ -33,12 +55,14 @@ const InputNode = ({ data }: NodeProps<InputNode>) => {
       const entry = data.layers.find((ele) => ele.Type === e.target.value);
       paramRef.current = data.layers.find((ele) => ele.Type === e.target.value);
       console.log(entry);
-      setParams(paramRef.current);
+      // updateParams(paramRef.current);
+      updateParams(entry);
       optionsRef.current = entry.params;
       // let optionDivs = options.map((arg) => getOptions(arg, entry));
       // optionDivs = optionDivs.filter((n) => n);
       // setOptions(optionDivs);
-      setOptions(optionsRef.current);
+      // updateOptions(optionsRef.current);
+      updateOptions(entry.params);
     },
     []
   );
@@ -61,8 +85,10 @@ const InputNode = ({ data }: NodeProps<InputNode>) => {
     <>
       <div className="bg-slate-200 rounded-md shadow-md px-4 py-3 gap-1 flex flex-col max-w-60">
         <Handle type="source" position={Position.Bottom} id="a" />
-        <h1 className="text-l">Input Node</h1>
-        <label htmlFor="types" className="text-[8px]">
+        <h1 className="text-l font-['proggyclean_ce_nerd_font_mono_regular']">
+          Input Node
+        </h1>
+        <label htmlFor="types" className="text-[7px]">
           Layer Type
         </label>
 

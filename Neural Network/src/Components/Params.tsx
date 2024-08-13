@@ -13,7 +13,7 @@ const Params = ({ arg, entry }) => {
   if (argele.type === "dropdown") {
     return (
       <div key={crypto.randomUUID()} className="text-xs">
-        <label htmlFor={arg} className="text-[8px]">
+        <label htmlFor={arg} className="text-[7px]">
           {arg}
           <br />
         </label>
@@ -23,7 +23,7 @@ const Params = ({ arg, entry }) => {
   } else if (argele.type === "float") {
     return (
       <div key={crypto.randomUUID()} className="text-xs">
-        <label htmlFor={arg} className="text-[8px]">
+        <label htmlFor={arg} className="text-[7px]">
           {arg}
           <br />
           {/* content here */}
@@ -34,7 +34,7 @@ const Params = ({ arg, entry }) => {
   } else if (argele.type === "int") {
     return (
       <div key={crypto.randomUUID()} className="text-xs">
-        <label htmlFor={arg} className="text-[8px]">
+        <label htmlFor={arg} className="text-[7px]">
           {arg}
           <br />
           {/* content here */}

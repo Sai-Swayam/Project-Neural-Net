@@ -4,13 +4,14 @@ import { useDisableNumberInputScroll } from "../../Hooks/useDisableNumberInputSc
 const Int = ({ argele }) => {
   useDisableNumberInputScroll();
 
-  const [int, setInt] = useState<number>('');
+  const [int, setInt] = useState('');
 
   const onIntChange = useCallback(
     (event: React.ChangeEvent<HTMLInputElement>) => {
       const newValue = Number(event.target.value);
       setInt(newValue);
       console.log("Int value:", int);
+      
     },
     [int]
   );
