@@ -3,13 +3,14 @@ import { Handle, Position } from "@xyflow/react";
 import type { Node, NodeProps } from "@xyflow/react";
 import Params from "../Components/Params";
 import useStore from "../store";
+import "augmented-ui/augmented-ui.min.css";
+import "./Node.css";
+import { Layer } from "../Types";
 // import { useDisableNumberInputScroll } from "../Hooks/useDisableNumberInputScroll";
-
-interface Layers {}
 
 //this type will be defined by the json recieved from the frontend
 type InputNode = Node<
-  { label: string; number: number; layers: Layers },
+  { label: string; number: number; layers: Layer[] },
   "input"
 >;
 
@@ -43,6 +44,11 @@ const InputNode = ({ data }: NodeProps<InputNode>) => {
     const entry = data.layers[0];
     updateParams(entry);
     updateOptions(entry.params);
+
+
+
+    //trigger console.log when child input loses focus, for bux fix****
+    // console.log("re-rendered")
   }, []);
 
   const onChange = useCallback((event: React.ChangeEvent<HTMLInputElement>) => {
@@ -67,6 +73,7 @@ const InputNode = ({ data }: NodeProps<InputNode>) => {
     []
   );
 
+
   //layer items
   const layerItems = data.layers.map((layer) => (
     <option
@@ -83,7 +90,10 @@ const InputNode = ({ data }: NodeProps<InputNode>) => {
 
   return (
     <>
-      <div className="bg-slate-200 rounded-md shadow-md px-4 py-3 gap-1 flex flex-col max-w-60">
+      <div
+        data-augmented-ui="both tr-clip-x tl-rect-x bl-clip br-2-clip-y border"
+        className="pitch-mixin bg-slate-200 rounded-md shadow-md p-7 gap-1 flex flex-col max-w-60"
+      >
         <Handle type="source" position={Position.Bottom} id="a" />
         <h1 className="text-l font-['proggyclean_ce_nerd_font_mono_regular']">
           Input Node
@@ -100,9 +110,10 @@ const InputNode = ({ data }: NodeProps<InputNode>) => {
         /> */}
 
         <select
+          data-augmented-ui=""
           name="types"
           id="types"
-          className="rounded-sm outline-none p-0.5 text-xs "
+          className=" outline-none p-0.5 text-xs  "
           onChange={onLayerTypeChange}
         >
           {layerItems}

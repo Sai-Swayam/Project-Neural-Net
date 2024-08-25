@@ -10,8 +10,8 @@ const useStore = create((set) => ({
     updateInputParams: (newParams) => set({ inputParams: newParams }),
     updateInputOptions: (newOptions) => set({ inputOptions: newOptions }),
   
-    updateOutputParams: (newParams) => set({ hiddenParams: newParams }),
-    updateOutputOptions: (newOptions) => set({ hiddenOptions: newOptions }),
+    updateHiddenParams: (newParams) => set({ hiddenParams: newParams }),
+    updateHiddenOptions: (newOptions) => set({ hiddenOptions: newOptions }),
 }));
 
 export default useStore;

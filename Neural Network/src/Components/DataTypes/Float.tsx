@@ -26,7 +26,7 @@ const Float = ({ argele }) => {
         step={0.01}
         // pattern="\d+"
         onChange={onFloatChange}
-        className="text-xs w-16 rounded-sm p-0.5 nodrag outline-none"
+        className="text-xs w-16 p-0.5 nodrag outline-none"
         required={argele.required}
       ></input>
     </div>

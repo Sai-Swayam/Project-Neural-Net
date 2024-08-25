@@ -8,7 +8,7 @@ const Dropdown = ({ arg, entry }) => {
   ));
   return (
     <div>
-      <select className="rounded-sm outline-none p-0.4 text-xs">{options}</select>
+      <select className="outline-none p-0.5 text-xs">{options}</select>
     </div>
   );
 };

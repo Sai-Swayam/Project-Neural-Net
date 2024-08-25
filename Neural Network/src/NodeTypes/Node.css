@@ -1,0 +1,27 @@
+.pitch-mixin {
+    --aug-tr: 15px;
+    --aug-b-extend1: 50%;
+
+    --aug-tl: 10px;
+
+    --aug-border-all: 4px;
+    --aug-border-bg: radial-gradient(
+      at top, rgb(255, 136, 0) 25%, transparent 50%),
+      url("../assets/GTpUDNlaMAAGu81.jpeg") 50% 50% / 100% 100%, 
+      radial-gradient(
+      at bottom, rgb(255, 136, 0) 25%, transparent 50%),
+      url("../assets/GTpUDNlaMAAGu81.jpeg") 50% 50% / 100% 100%;
+
+    --aug-inlay-all: 2px;
+    --aug-inlay-bg: radial-gradient(rgba(39, 39, 39, 0.836), rgb(0, 0, 0));
+    /* --aug-inlay-bg:url("../assets/20210611_002758.jpg") 50% 50% / 100% 100%;  */
+    --aug-inlay-opacity: 0.2;
+  }
+
+.reticle {
+  --aug-tr: 5px;
+  --aug-tl: 6px;
+  --aug-br: 4px;
+  --aug-bl: 5px;
+
+}

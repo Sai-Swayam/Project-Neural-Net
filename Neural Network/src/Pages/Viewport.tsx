@@ -1,13 +1,19 @@
 import React, { useCallback, useEffect, useState } from "react";
 import InputNode from "../NodeTypes/InputNode";
 import HiddenNode from "../NodeTypes/HiddenNode";
+// import layersjson from "../assets/layersCopy.json";
+import useStore from "../store";
+import "augmented-ui/augmented-ui.min.css";
+// import { Layer } from "../Types"
 import layersjson from "../assets/layersCopy.json";
+import { Welcome, Layer } from "../Types";
 
-let layers = layersjson.layers;
 
-interface Layer {
-  Type: string;
-}
+// let layers:Layer[] = layersjson.layers;
+let layersData: Welcome = layersjson as Welcome;
+let layers: Layer[] = layersData.layers;
+
+
 
 import {
   ReactFlow,
@@ -27,6 +33,7 @@ import {
 import "@xyflow/react/dist/base.css";
 
 const flowKey = "example-flow";
+const currentNodesState = "nodes-states";
 const getNodeId = () => `randomnode_${+new Date()}`;
 
 //rename these back to initialNodes
@@ -66,19 +73,45 @@ export const Viewport: React.FC = () => {
   const [rfInstance, setRfInstance] = useState(null);
   const { setViewport } = useReactFlow();
 
+  //Nodes states from the store
+  const inputParams = useStore((state) => state.inputParams);
+  const inputOptions = useStore((state) => state.inputOptions);
+
+  const hiddenParams = useStore((state) => state.hiddenParams);
+  const hiddenOptions = useStore((state) => state.hiddenOptions);
+
+  const updateInputParams = useStore((state) => state.updateInputParams);
+  const updateInputOptions = useStore((state) => state.updateInputOptions);
+
+  const updateHiddenParams = useStore((state) => state.updateHiddenParams);
+  const updateHiddenOptions = useStore((state) => state.updateHiddenOptions);
+
   const onConnect: OnConnect = useCallback(
     (params) => setEdges((eds) => addEdge(params, eds)),
     [setEdges]
   );
   const onSave = useCallback(() => {
     if (rfInstance) {
+      //react flow state
       const flow = rfInstance.toObject();
       localStorage.setItem(flowKey, JSON.stringify(flow));
+
+      //Nodes fields state
+      const nState = {
+        inpParams: inputParams,
+        inpOptions: inputOptions,
+        hidParams: hiddenParams,
+        hidOptions: hiddenOptions,
+      };
+      localStorage.setItem(currentNodesState, JSON.stringify(nState));
+      console.log(localStorage.getItem(currentNodesState));
+
       console.log("saving");
     }
   }, [rfInstance]);
 
   const onRestore = useCallback(() => {
+    //reacg flow logic
     const restoreFlow = async () => {
       const flow = JSON.parse(localStorage.getItem(flowKey));
       //Current state of nodes
@@ -93,6 +126,14 @@ export const Viewport: React.FC = () => {
     };
 
     restoreFlow();
+
+    //Nodes field state restore
+    const nState = JSON.parse(localStorage.getItem(currentNodesState));
+    console.log(nState);
+    updateInputParams(nState.inpParams);
+    updateInputOptions(nState.inpOptions);
+    updateHiddenParams(nState.hiddenParams);
+    updateHiddenOptions(nState.hiddenOptions);
   }, [setNodes, setViewport]);
 
   const onAdd = useCallback(() => {
@@ -131,19 +172,22 @@ export const Viewport: React.FC = () => {
           <Panel position="top-right">
             <button
               onClick={onSave}
-              className="m-2 rounded-lg bg-slate-700 text-white px-4 py-2 shadow-xl   "
+              className="reticle m-2 bg-slate-700 text-white px-4 py-2 shadow-xl"
+              data-augmented-ui="tr-2-clip-x br-clip tl-clip bl-2-rect-xy"
             >
               save
             </button>
             <button
               onClick={onRestore}
-              className="m-2 rounded-lg bg-slate-700 text-white px-4 py-2 shadow-xl"
+              className="reticle m-2 bg-slate-700 text-white px-4 py-2 shadow-xl"
+              data-augmented-ui="tl-2-clip-x tr-clip bl-clip br-2-rect-y"
             >
               restore
             </button>
             <button
               onClick={onAdd}
-              className="m-2 rounded-lg bg-slate-700 text-white px-4 py-2 shadow-xl"
+              className="reticle m-2 bg-slate-700 text-white px-4 py-2 shadow-xl"
+              data-augmented-ui="bl-2-clip-x br-clip tl-clip tr-2-rect-y"
             >
               add node
             </button>
